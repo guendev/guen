@@ -115,15 +115,15 @@
 
 const counters = computed(() => [
   {
-    title: 'Clients worldwide',
+    title: 'Web Application',
     count: 30,
   },
   {
-    title: 'Projects',
+    title: 'Mobile Application',
     count: 20,
   },
   {
-    title: 'Years of experience',
+    title: 'Others',
     count: 4,
   },
 ])

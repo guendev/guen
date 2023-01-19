@@ -29,13 +29,10 @@ const menus = computed(() => [
     title: 'Home',
   },
   {
-    title: 'Works',
-  },
-  {
     title: 'About',
   },
   {
-    title: 'Projects',
+    title: 'Works',
   },
   {
     title: 'Services',
