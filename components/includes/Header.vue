@@ -1,0 +1,55 @@
+<template>
+  <div class="max-w-bootstrap mx-auto h-[70px] border-b flex items-center">
+
+    <h1 class="mr-auto">
+      Guen
+      <span></span>
+    </h1>
+
+    <ul class="flex items-center mr-14 font-medium">
+      <li v-for="menu in menus" :key="menu.title" class="ml-6 first:ml-0">
+        <a :href="menu.href" class="px-2 py-1 hover:bg-gray-100 rounded">
+          {{ menu.title }}
+        </a>
+      </li>
+    </ul>
+
+    <button class="bg-gradient-to-r from-primary-50 to-primary-100 text-primary uppercase px-5 py-1.5 flex justify-center items-center rounded-full border-2 border-primary">
+      <Icon class="text-[18px]" name="ic:twotone-download-for-offline" />
+      <span class="text-sm ml-1.5">Resume</span>
+    </button>
+
+  </div>
+</template>
+
+<script lang="ts" setup>
+
+const menus = computed(() => [
+  {
+    title: 'Home',
+  },
+  {
+    title: 'Works',
+  },
+  {
+    title: 'About',
+  },
+  {
+    title: 'Projects',
+  },
+  {
+    title: 'Services',
+  }
+])
+
+</script>
+
+<style scoped lang="scss">
+h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 35px;
+  span {
+    @apply w-2.5 h-2.5 bg-red-500 inline-block rounded-full;
+  }
+}
+</style>
