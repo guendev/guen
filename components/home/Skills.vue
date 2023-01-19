@@ -32,7 +32,7 @@
 div {
   @apply flex flex-wrap;
   svg {
-    @apply mr-5
+    @apply mr-5 transition hover:scale-125
   }
 }
 </style>

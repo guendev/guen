@@ -1,19 +1,24 @@
 <template>
-  <div class="w-1/2 h-[calc(100vh-70px)] flex flex-col">
+  <div class="w-1/2">
+    <div class="h-[calc(100vh-120px)] flex flex-col justify-around">
 
-    <home-name class="mt-14" />
+      <div />
 
+      <home-name />
 
-    <home-extra-info class="my-9" />
+      <home-extra-info />
 
-    <home-actions />
+      <home-actions />
 
-    <home-counter class="my-10" />
+      <home-counter />
 
-    <home-skills />
+      <home-skills />
 
-    <home-footer class="mt-auto mb-4" />
+    </div>
 
+    <div class="h-[50px] flex items-center">
+      <home-footer />
+    </div>
 
   </div>
 </template>
