@@ -1,6 +1,6 @@
 <template>
   <div class="text-gray-800">
-    Strange developing for over <b>four years</b>
+    Strange developing for almost <b>4 years</b>
     <br />
     as a queer developer.
   </div>

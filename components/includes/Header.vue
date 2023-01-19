@@ -15,8 +15,8 @@
     </ul>
 
     <button class="bg-gradient-to-r from-primary-50 to-primary-100 text-primary uppercase px-5 py-1.5 flex justify-center items-center rounded-full border-2 border-primary">
-      <Icon class="text-[18px]" name="ic:twotone-download-for-offline" />
-      <span class="text-sm ml-1.5">Resume</span>
+      <Icon class="text-[18px]" name="line-md:downloading-loop" />
+      <span class="text-[12px] ml-1.5 font-semibold">Resume</span>
     </button>
 
   </div>
