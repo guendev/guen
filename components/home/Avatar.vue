@@ -2,7 +2,7 @@
   <div class="w-1/2 h-full relative bg-gray-100 h-[calc(100vh-70px)]">
 
 
-    <img src="/images/me.jpeg" alt="" class="w-full h-full object-cover" />
+<!--    <img src="/images/me.jpeg" alt="" class="w-full h-full object-cover" />-->
 
 
     <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-16 w-8/12">

@@ -36,6 +36,9 @@ const menus = computed(() => [
   },
   {
     title: 'Services',
+  },
+  {
+    title: 'Blog',
   }
 ])
 
