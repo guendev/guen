@@ -33,7 +33,7 @@
         </div>
 
         <div class="leading-5 text-sm font-semibold mt-1">
-          contact@guen.dev
+          heloo@guen.dev
         </div>
       </div>
 
