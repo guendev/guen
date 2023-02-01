@@ -2,6 +2,10 @@
 module.exports = {
   theme: {
     extend: {
+      screens: {
+        'lg': '980px',
+        'mini': '480px'
+      },
       maxWidth: {
         bootstrap: '980px'
       },

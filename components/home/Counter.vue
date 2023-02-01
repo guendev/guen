@@ -2,8 +2,8 @@
   <div>
     <div class="flex">
 
-      <div>
-        <div class="font-bold text-[25px] text-gray-900">
+      <div class="w-5/12">
+        <div class="font-bold lg:text-[25px] text-[22px] text-gray-900">
           +30
         </div>
 
@@ -12,13 +12,12 @@
         </div>
       </div>
 
-
     </div>
 
     <div class="flex mt-7">
 
-      <div>
-        <div class="font-bold text-[25px] text-gray-900">
+      <div class="w-5/12">
+        <div class="font-bold lg:text-[25px] text-[22px] text-gray-900">
           +40
         </div>
 
@@ -27,8 +26,8 @@
         </div>
       </div>
 
-      <div class="ml-20">
-        <div class="font-bold text-[25px] text-gray-900">
+      <div class="w-7/12">
+        <div class="font-bold lg:text-[25px] text-[22px] text-gray-900">
           Contact
         </div>
 

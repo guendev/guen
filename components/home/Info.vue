@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/2">
+  <div>
     <div class="h-[calc(100vh-120px)] flex flex-col justify-around">
 
       <div />
