@@ -1,38 +1,15 @@
 <template>
-  <div class="max-w-bootstrap mx-auto flex px-4 lg:px-0">
+  <div id="home-page" class="flex -mr-5 bg-white">
 
-    <home-info
-        :class="[largerThanMd ? 'w-1/2' : 'w-full']"
-        :style="cutsomStyle"
-    />
+    <home-info class="md:w-1/2 w-full max-w-[500px] md:max-w-full mx-auto md:mx-0" />
 
-    <home-avatar v-if="largerThanMd" class="w-1/2" />
+    <home-avatar class="hidden md:block w-1/2" />
 
   </div>
 </template>
 
-<script lang="ts" setup>
-import {breakpointsTailwind} from "@vueuse/core";
-import {CSSProperties} from "@vue/runtime-dom";
+<script lang="ts" setup></script>
 
-const breakpoints = useBreakpoints({
-  ...breakpointsTailwind,
-  ct: '500px'
-})
-const largerThanMd = breakpoints.greater('md')
+<style scoped>
 
-const isCenterLayout = breakpoints.between('ct', 'md')
-const cutsomStyle = computed<CSSProperties>(() => {
-
-  if(!isCenterLayout) {
-    return {}
-  }
-  return {
-    maxWidth: '500px',
-    margin: '0 auto'
-  }
-
-})
-</script>
-
-<style scoped></style>
+</style>

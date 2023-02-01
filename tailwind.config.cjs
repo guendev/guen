@@ -4,7 +4,9 @@ module.exports = {
     extend: {
       screens: {
         'lg': '980px',
-        'mini': '480px'
+        'semi': '640px',
+        'small': '480px',
+        'mini': '360px'
       },
       maxWidth: {
         bootstrap: '980px'
@@ -30,10 +32,10 @@ module.exports = {
       }
     }
   },
-  // plugins: [
-  //   require('@tailwindcss/aspect-ratio'),
-  //   require('@tailwindcss/typography'),
-  //   require('tailwind-scrollbar-hide'),
-  //   require('@tailwindcss/line-clamp')
-  // ]
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/line-clamp')
+  ]
 }

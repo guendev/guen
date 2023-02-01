@@ -4,9 +4,9 @@
       <div
           v-for="item in props.menu"
           :key="item.title"
-          class="py-2.5 text-gray-700"
+          class="text-gray-700"
       >
-        <a>
+        <a class="block py-2.5 bg-primary-500">
           <Icon :name="item.icon" class="mr-3 text-[22px]" />
           <span class="text-[14px] text-gray-700">{{ item.title }}</span>
         </a>
