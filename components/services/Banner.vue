@@ -4,7 +4,7 @@
 
     <div class="w-full md:pr-12">
 
-      <h1 class="md:text-[40px] text-[35px] leading-[45px] md:leading-[55px] capitalize font-semibold">
+      <h1 class="md:text-[40px] semi:text-[35px] text-[30px] semi:leading-[45px] md:leading-[55px] capitalize font-semibold">
         Bringing <span>your ideas</span>
         <br /> to the world.
       </h1>
