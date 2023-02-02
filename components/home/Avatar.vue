@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-gray-100 h-[calc(var(--window-height)-70px)]">
+  <div id="avatar" class="relative bg-gray-100 h-[calc(100vh-70px)]">
 
 
     <img src="/images/me.jpeg" alt="" class="w-full h-full object-cover" />
@@ -18,7 +18,11 @@
 </template>
 
 <script lang="ts" setup>
-
+const minHeight = computed(() => `calc(var(--vh) * 100 - 70px)`)
 </script>
 
-<style scoped></style>
+<style scoped>
+#avatar {
+  min-height: v-bind(minHeight);
+}
+</style>

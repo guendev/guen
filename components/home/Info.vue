@@ -1,28 +1,32 @@
 <template>
-  <div>
-    <div class="h-[calc(var(--window-height)-120px)] flex flex-col justify-around">
+  <div
+    id="info"
+      class="flex flex-col justify-around"
+  >
 
-      <div />
+    <div />
 
-      <home-name />
+    <home-name />
 
-      <home-extra-info />
+    <home-extra-info />
 
-      <home-actions />
+    <home-actions />
 
-      <home-counter />
+    <home-counter />
 
-      <home-skills />
+    <home-skills />
 
-    </div>
-
-    <div class="h-[50px] flex items-center">
-      <home-footer />
-    </div>
+    <home-footer />
 
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const minHeight = computed(() => `calc(var(--vh) * 100 - 70px)`)
+</script>
 
-<style scoped></style>
+<style scoped>
+#info {
+  min-height: v-bind(minHeight);
+}
+</style>

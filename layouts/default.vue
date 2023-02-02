@@ -2,7 +2,10 @@
   <div ref="el" class="min-h-screen text-gray-800 bg-primary-50">
     <includes-header />
     <div class="h-[70px] bg-white max-w-bootstrap mx-auto"></div>
-    <div class="shadow-default max-w-bootstrap mx-auto px-5 bg-white min-h-[calc(100vh-70px)]">
+    <div
+        id="default-body"
+        class="shadow-default max-w-bootstrap mx-auto px-5 bg-white min-h-[calc(100vh-70px)]"
+    >
       <NuxtPage />
     </div>
   </div>
@@ -13,11 +16,18 @@
 const el = ref()
 
 const { height } = useWindowSize()
-const windowHeight = useCssVar('--window-height', el, { initialValue: '100vh' })
-
 watch(height, (val) => {
-  windowHeight.value = val + 'px'
-})
+  if(process.client) {
+    // set --vh
+    document.documentElement.style.setProperty('--vh', val / 100 + 'px')
+  }
+}, { immediate: true })
+
+const minHeight = computed(() => `calc(var(--vh, 1vh) * 100 - 70px)`)
 </script>
 
-<style scoped></style>
+<style>
+#default-body {
+  min-height: v-bind(minHeight);
+}
+</style>
