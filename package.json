@@ -27,6 +27,7 @@
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.6",
     "@pinia/nuxt": "^0.4.6",
+    "party-js": "^2.2.0",
     "pinia": "^2.0.29"
   }
 }

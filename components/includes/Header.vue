@@ -15,7 +15,12 @@
 
         <ul class="items-center font-medium hidden semi:flex">
           <li v-for="menu in menus" :key="menu.title" class="ml-6 first:ml-0">
-            <nuxt-link to="/" class="px-2 py-1">
+            <nuxt-link
+                :to="menu.src"
+                class="px-2 py-1 transition duration-300 ease-in-out hover:text-primary-500"
+                active-class="font-semibold text-primary-500"
+            >
+<!--              <Icon v-if="$route.path === menu.src" :name="menu.icon" />-->
               {{ menu.title }}
             </nuxt-link>
           </li>
