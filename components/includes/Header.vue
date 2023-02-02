@@ -14,7 +14,12 @@
         </div>
 
         <ul class="items-center font-medium hidden semi:flex">
-          <li v-for="menu in menus" :key="menu.title" class="ml-6 first:ml-0">
+          <li
+              v-for="menu in menus"
+              :key="menu.title"
+              ref="items"
+              class="ml-6 first:ml-0 opacity-0"
+          >
             <nuxt-link
                 :to="menu.src"
                 class="px-2 py-1 transition duration-300 ease-in-out hover:text-primary-500"
@@ -49,6 +54,7 @@
 
 <script lang="ts" setup>
 import {MenuEntity} from "~/entities/menu.entity"
+import {useNuxtApp} from "#imports";
 const menus = computed<MenuEntity[]>(() => [
   {
     title: 'Home',
@@ -60,11 +66,11 @@ const menus = computed<MenuEntity[]>(() => [
     src: '/about',
     icon: 'fluent-emoji-flat:four-leaf-clover'
   },
-  {
-    title: 'Works',
-    src: '/works',
-    icon: 'fluent-emoji-flat:bullseye'
-  },
+  // {
+  //   title: 'Works',
+  //   src: '/works',
+  //   icon: 'fluent-emoji-flat:bullseye'
+  // },
   {
     title: 'Services',
     src: '/services',
@@ -85,6 +91,21 @@ watch(openMenu, (value) => {
   } else {
     document.body.style.overflow = 'hidden'
   }
+})
+
+const items = ref<HTMLElement[]>([])
+
+const { $anime } = useNuxtApp()
+
+onMounted(() => {
+  $anime({
+    targets: items.value,
+    scale: [0.9, 1],
+    // transform vertical
+    translateY: [-20, 0],
+    opacity: 1,
+    delay: $anime.stagger(150)
+  })
 })
 </script>
 
