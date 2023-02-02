@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="" />
+    <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/components/blog/Wrapper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Wrapper.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +85,7 @@
       <workItem from="1675319896339" duration="2760000" />
       <workItem from="1675323925062" duration="4993000" />
       <workItem from="1675342124977" duration="5938000" />
-      <workItem from="1675357398780" duration="492000" />
+      <workItem from="1675357398780" duration="817000" />
     </task>
     <task id="LOCAL-00001" summary="cm">
       <created>1675324256100</created>
@@ -155,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675357529755</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="cm">
+      <created>1675358131917</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675358131917</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

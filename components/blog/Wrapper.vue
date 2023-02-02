@@ -2,8 +2,8 @@
   <div
       class="md:px-12 min-h-[calc(100vh-70px)]"
       :class="{
-        'py-12': !$slots['header'],
-        'pb-12 pt-7': $slots['header'],
+        'py-7 md:py-10': !$slots['header'],
+        'pb-10 pt-7': $slots['header'],
       }"
   >
     <slot name="header"></slot>
