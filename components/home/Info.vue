@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h-[calc(var(--vh,1vh)*100-120px)] flex flex-col justify-around">
+    <div class="h-[calc(100vh-120px)] flex flex-col justify-around">
 
       <div class="hidden md:block" />
 
