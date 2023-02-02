@@ -55,8 +55,4 @@
 
 </script>
 
-<style scoped>
-._about_item {
-  //opacity: 0;
-}
-</style>
+<style scoped></style>
