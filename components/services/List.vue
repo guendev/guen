@@ -5,7 +5,7 @@
     <div
         v-for="(service, index) in services"
         :key="index"
-        class="w-1/3 flex items-center justify-center flex-col py-7"
+        class="w-full small:w-1/2 semi:w-1/3 flex items-center justify-center flex-col py-7"
     >
 
       <div class="w-20">
