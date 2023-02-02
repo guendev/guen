@@ -2,7 +2,7 @@
   <div>
     <div class="h-[calc(100vh-120px)] flex flex-col justify-around">
 
-      <div />
+      <div class="hidden md:block" />
 
       <home-name />
 
