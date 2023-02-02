@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <nuxt-link class="block" to="/blog/abc">
     <div class="aspect-w-5 aspect-h-3 overflow-hidden">
       <img src="https://tn1-f2.kkmh.com/image/221125/vlbGGKxIv.webp-t.w540.webp.h" alt="" class="w-full h-full object-cover transition transform hover:scale-105" />
     </div>
@@ -17,7 +17,7 @@
 
     </div>
 
-  </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts" setup>

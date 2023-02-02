@@ -1,6 +1,18 @@
 <template>
-  <div class="md:px-12 py-12 min-h-[calc(100vh-70px)]">
-    <div class="prose prose-slate mx-auto lg:prose-lg max-w-none">
+  <div
+      class="md:px-12 min-h-[calc(100vh-70px)]"
+      :class="{
+        'py-12': !$slots['header'],
+        'pb-12 pt-7': $slots['header'],
+      }"
+  >
+    <slot name="header"></slot>
+    <div
+        class="prose prose-slate mx-auto lg:prose-lg max-w-none"
+        :class="{
+          'pt-6': $slots['header'],
+        }"
+    >
       <slot></slot>
     </div>
   </div>
