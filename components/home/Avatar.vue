@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full relative bg-gray-100 h-[calc(100vh-70px)]">
+  <div class="relative bg-gray-100 h-[calc(var(--window-height)-70px)]">
 
 
     <img src="/images/me.jpeg" alt="" class="w-full h-full object-cover" />

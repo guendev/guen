@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="h-[calc(100vh-120px)] flex flex-col justify-around">
+    <div class="h-[calc(var(--window-height)-120px)] flex flex-col justify-around">
 
-      <div class="hidden md:block" />
+      <div />
 
       <home-name />
 
