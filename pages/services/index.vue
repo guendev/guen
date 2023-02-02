@@ -1,6 +1,8 @@
 <template>
   <div>
-    <services-banner class="border-b border-gray-100 pb-1" />
+    <div class="pb-4"></div>
+    <services-banner />
+    <div class="border-b border-gray-100 py-4"></div>
     <services-list />
   </div>
 </template>
