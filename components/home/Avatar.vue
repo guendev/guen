@@ -16,13 +16,3 @@
 
   </div>
 </template>
-
-<script lang="ts" setup>
-const minHeight = computed(() => `calc(var(--vh) * 100 - 70px)`)
-</script>
-
-<style scoped>
-#avatar {
-  min-height: v-bind(minHeight);
-}
-</style>

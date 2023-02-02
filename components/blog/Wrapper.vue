@@ -1,7 +1,6 @@
 <template>
   <div
-      id="wrapper"
-      class="md:px-12"
+      class="md:px-12 min-h-[calc(100vh-70px)]"
       :class="{
         'py-7 md:py-10': !$slots['header'],
         'pb-7 md:pb-10 pt-7': $slots['header'],
@@ -20,11 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-const minHeight = computed(() => `calc(var(--vh) * 100 - 70px)`)
+
 </script>
 
-<style scoped>
-#wrapper {
-  min-height: v-bind(minHeight);
-}
-</style>
+<style scoped></style>
