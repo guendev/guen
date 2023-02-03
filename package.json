@@ -18,6 +18,7 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/animejs": "^3.1.7",
+    "@types/jsonwebtoken": "^9.0.1",
     "@vueuse/core": "^9.11.0",
     "@vueuse/nuxt": "^9.11.0",
     "nuxt": "^3.1.1",
@@ -30,6 +31,8 @@
     "@nguyenshort/vue-lottie": "^1.0.0",
     "@pinia/nuxt": "^0.4.6",
     "animejs": "^3.2.1",
+    "firebase": "^9.17.0",
+    "jsonwebtoken": "^9.0.0",
     "party-js": "^2.2.0",
     "pinia": "^2.0.29"
   }
