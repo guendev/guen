@@ -10,18 +10,19 @@
 
 <script lang="ts" setup>
 
+const isClient = ref(false)
+onMounted(() => nextTick(() => isClient.value = true))
+
 const el = ref()
-
 const { height } = useWindowSize()
-
 const debouncedFn = useDebounceFn(() => {
-  // if(process.client) {
+  if(isClient) {
 
     const _val = height.value ? (height.value / 100 + 'px') : '1vh'
     // set --vh
     // ssr: context without document
     document?.documentElement.style.setProperty('--vh', _val)
-  //}
+  }
 }, 100)
 
 watch(height, () => debouncedFn(), { immediate: true })
