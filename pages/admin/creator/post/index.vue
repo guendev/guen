@@ -1,7 +1,7 @@
 <template>
   <blog-wrapper>
     <client-only>
-      <admin-posts-list />
+      <admin-creator-post />
     </client-only>
   </blog-wrapper>
 </template>

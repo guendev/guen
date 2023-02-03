@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/creator/Post.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/admin/creator/post/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/blog.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/entities/post.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/admin/posts/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/posts/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/posts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/posts/index.vue" afterDir="false" />
@@ -21,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -59,6 +60,8 @@
       <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/admin/creator" />
+      <recent name="$PROJECT_DIR$/components/admin" />
       <recent name="$PROJECT_DIR$/server/plugins" />
       <recent name="$PROJECT_DIR$/public/images/services" />
     </key>
@@ -95,7 +98,7 @@
       <workItem from="1675342124977" duration="5938000" />
       <workItem from="1675357398780" duration="8222000" />
       <workItem from="1675412330946" duration="5111000" />
-      <workItem from="1675417454767" duration="1669000" />
+      <workItem from="1675417454767" duration="6858000" />
     </task>
     <task id="LOCAL-00001" summary="cm">
       <created>1675324256100</created>
@@ -293,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675418825038</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="cm">
+      <created>1675419410853</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1675419410853</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
