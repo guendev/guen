@@ -11,7 +11,10 @@
 <script lang="ts" setup>
 
 const isClient = ref(false)
-onMounted(() => nextTick(() => isClient.value = true))
+onMounted(() => nextTick(() => {
+  document?.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`)
+  isClient.value = true
+}))
 
 const el = ref()
 const { height } = useWindowSize()
