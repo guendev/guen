@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/composables/useAuthStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entities/auth.entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/auth.global.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin/posts/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/firebase.client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/init.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/auth.post.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/logout.post.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/me.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/default.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/default.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/blog/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Item.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/blog/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/blog.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/entities/post.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/posts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/posts/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +55,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/plugins" />
+      <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/plugins" />
@@ -104,7 +95,7 @@
       <workItem from="1675342124977" duration="5938000" />
       <workItem from="1675357398780" duration="8222000" />
       <workItem from="1675412330946" duration="5111000" />
-      <workItem from="1675417454767" duration="1288000" />
+      <workItem from="1675417454767" duration="1669000" />
     </task>
     <task id="LOCAL-00001" summary="cm">
       <created>1675324256100</created>
@@ -295,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675412962387</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="cm">
+      <created>1675418825038</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1675418825038</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

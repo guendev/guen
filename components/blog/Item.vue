@@ -21,10 +21,10 @@
 </template>
 
 <script lang="ts" setup>
-import {BlogEntity} from "~/entities/blog.entity";
+import {PostEntity} from "~/entities/post.entity";
 
 const props = defineProps<{
-  blog: BlogEntity
+  blog: PostEntity
 }>()
 </script>
 

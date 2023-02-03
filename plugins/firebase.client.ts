@@ -18,7 +18,8 @@ export default defineNuxtPlugin(nuxtApp => {
         storageBucket: "guen-3b189.appspot.com",
         messagingSenderId: "885306431413",
         appId: "1:885306431413:web:80ef79a32dc3c32b48ebfc",
-        measurementId: "G-ZDS179STW7"
+        measurementId: "G-ZDS179STW7",
+        databaseURL: "https://guen-3b189-default-rtdb.asia-southeast1.firebasedatabase.app"
     }
 
 // Initialize Firebase

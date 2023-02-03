@@ -30,6 +30,7 @@
     "@formkit/auto-animate": "^1.0.0-beta.6",
     "@nguyenshort/vue-lottie": "^1.0.0",
     "@pinia/nuxt": "^0.4.6",
+    "@vueuse/firebase": "^9.12.0",
     "animejs": "^3.2.1",
     "firebase": "^9.17.0",
     "jsonwebtoken": "^9.0.0",

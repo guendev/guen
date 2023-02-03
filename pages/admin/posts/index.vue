@@ -1,5 +1,9 @@
 <template>
-  <div>Post</div>
+  <div>
+    <client-only>
+      <admin-posts-list />
+    </client-only>
+  </div>
 </template>
 
 <script lang="ts" setup>

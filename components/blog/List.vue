@@ -20,9 +20,9 @@
 </template>
 
 <script lang="ts" setup>
-import {BlogEntity} from "~/entities/blog.entity";
+import {PostEntity} from "~/entities/post.entity";
 
-const blogs = ref<BlogEntity[]>([
+const blogs = ref<PostEntity[]>([
   {
     id: 1,
     title: 'Blog 1',
