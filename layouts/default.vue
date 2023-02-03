@@ -28,7 +28,7 @@ const debouncedFn = useDebounceFn(() => {
   }
 }, 100)
 
-watch(height, () => debouncedFn(), { immediate: true })
+watch(height, () => debouncedFn())
 </script>
 
 <style></style>
