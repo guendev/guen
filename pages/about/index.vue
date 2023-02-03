@@ -18,19 +18,19 @@
     </p>
     <p class="_about_item">
       Find me on
-      <a href="https://www.linkedin.com/in/trancongnguyen/" target="_blank">GitHub</a>,
-      <a href="https://www.linkedin.com/in/trancongnguyen/" target="_blank">Facebook</a>,
-      <a href="https://www.linkedin.com/in/trancongnguyen/" target="_blank">Instagram</a>
+      <a href="https://github.com/nguyenshort" target="_blank">GitHub</a>,
+      <a href="https://www.facebook.com/guen.dev/" target="_blank">Facebook</a>,
+      <a href="https://www.instagram.com/guen.dev/" target="_blank">Instagram</a>
       or
       <a href="https://www.linkedin.com/in/trancongnguyen/" target="_blank">Youtube</a>.
 
       <br/>
 
-      Email me at: <a href="mailto:heloo@guen.dev">heloo@guen.dev</a>
+      Email me at: <a href="mailto:heloo@guen.dev" target="_blank">heloo@guen.dev</a>
 
       <br />
 
-      Chat with me on <a href="https://discord.gg/2Z8Y4Z9">Discord</a>
+      Chat with me on <a href="https://www.facebook.com/guen.dev/">Messenger</a>
 
     </p>
   </blog-wrapper>

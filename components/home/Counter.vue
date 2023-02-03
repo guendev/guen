@@ -32,7 +32,9 @@
         </div>
 
         <div class="leading-5 text-sm font-semibold mt-1">
-          heloo@guen.dev
+          <a href="mailto:heloo@guen.dev" target="_blank">
+            heloo@guen.dev
+          </a>
         </div>
       </div>
 
