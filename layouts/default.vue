@@ -15,12 +15,13 @@ const el = ref()
 const { height } = useWindowSize()
 
 const debouncedFn = useDebounceFn(() => {
-  if(process.client) {
+  // if(process.client) {
 
     const _val = height.value ? (height.value / 100 + 'px') : '1vh'
     // set --vh
-    document.documentElement.style.setProperty('--vh', _val)
-  }
+    // ssr: context without document
+    document?.documentElement.style.setProperty('--vh', _val)
+  //}
 }, 100)
 
 watch(height, () => debouncedFn(), { immediate: true })
