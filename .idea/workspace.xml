@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/admin/creator/Post.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/admin/creator/post/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/admin/posts/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/posts/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/posts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/posts/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/admin/creator/Editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="Vue Single File Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -98,7 +91,7 @@
       <workItem from="1675342124977" duration="5938000" />
       <workItem from="1675357398780" duration="8222000" />
       <workItem from="1675412330946" duration="5111000" />
-      <workItem from="1675417454767" duration="6858000" />
+      <workItem from="1675417454767" duration="7293000" />
     </task>
     <task id="LOCAL-00001" summary="cm">
       <created>1675324256100</created>
@@ -303,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675419410853</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="cm">
+      <created>1675424464594</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1675424464594</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

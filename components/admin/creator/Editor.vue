@@ -4,19 +4,32 @@
 
 <script lang="ts" setup>
 import EditorJS from '@editorjs/editorjs'
-import Header from '@editorjs/header'
-import List from '@editorjs/list'
-import CodeTool from '@editorjs/code'
-import QuoteTool from '@editorjs/quote'
-import DelimiterTool from '@editorjs/delimiter'
-import TableTool from '@editorjs/table'
-import RawTool from '@editorjs/raw'
-import WarningTool from '@editorjs/warning'
-import CheckListTool from '@editorjs/checklist'
-import ImageTool from '@editorjs/image'
 
+//@ts-ignore
+import Header from '@editorjs/header'
+//@ts-ignore
+import List from '@editorjs/list'
+//@ts-ignore
+import CodeTool from '@editorjs/code'
+//@ts-ignore
+import QuoteTool from '@editorjs/quote'
+//@ts-ignore
+import DelimiterTool from '@editorjs/delimiter'
+//@ts-ignore
+import TableTool from '@editorjs/table'
+//@ts-ignore
+import RawTool from '@editorjs/raw'
+//@ts-ignore
+import WarningTool from '@editorjs/warning'
+//@ts-ignore
+import CheckListTool from '@editorjs/checklist'
+//@ts-ignore
+import ImageTool from '@editorjs/image'
+//@ts-ignore
 import Underline from '@editorjs/underline'
+//@ts-ignore
 import Embed from '@editorjs/embed'
+//@ts-ignore
 import InlineCodeTool from '@editorjs/inline-code'
 
 const editor = ref<EditorJS|undefined>()
