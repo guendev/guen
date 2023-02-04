@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/types/editor.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/admin/creator/Editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/blog/Wrapper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Wrapper.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/creator/post/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/creator/post/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/editor.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/editor.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +97,7 @@
       <workItem from="1675357398780" duration="8222000" />
       <workItem from="1675412330946" duration="5111000" />
       <workItem from="1675417454767" duration="7917000" />
-      <workItem from="1675521123205" duration="561000" />
+      <workItem from="1675521123205" duration="3128000" />
     </task>
     <task id="LOCAL-00001" summary="cm">
       <created>1675324256100</created>
@@ -313,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675424767070</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="cm">
+      <created>1675521687591</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1675521687591</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
