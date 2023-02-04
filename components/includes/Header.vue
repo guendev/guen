@@ -31,7 +31,13 @@
           </li>
         </ul>
 
-        <button class="semi:hidden" @click="openMenu = !openMenu">
+        <div id="header-actions"></div>
+
+        <button
+            v-if="!$route.path.match(/^\/admin/)"
+            class="semi:hidden"
+            @click="openMenu = !openMenu"
+        >
           <div
               class="w-[15px] h-[1.5px] bg-gray-900 rounded-full transition transform duration-300 ease-in-out origin-bottom-right"
               :class="{'-rotate-45': openMenu}"
