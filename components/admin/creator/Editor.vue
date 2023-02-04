@@ -22,14 +22,54 @@ import Embed from '@editorjs/embed'
 import InlineCodeTool from '@editorjs/inline-code'
 
 const editor = ref<EditorJS|undefined>()
-onMounted(() => nextTick(() => {
 
+const getPreviewURL = async (path: string) => {
+  return fsGetDownloadURL(fsRef(getStorage(), path))
+}
+
+const uploadByFile = async (file: File) => {
+  // upload file to firebase storage with file name as the current timestamp
+  const res = await fsUploadBytes(fsRef(getStorage(), `/posts/${Date.now()}`), file)
+  const previewUrl = await getPreviewURL(res.metadata.fullPath)
+  return {
+    success: 1,
+    file: {
+      url: previewUrl,
+      path: res.metadata.fullPath,
+      store: 'firebase'
+    }
+  }
+}
+
+const uploadByUrl = (url: string) => {
+  console.log(url)
+}
+
+onMounted(() => nextTick(() => {
   editor.value = new EditorJS({
     holder: 'editor',
     placeholder: 'Write your story...',
     tools: {
       header: Header,
-      image: ImageTool,
+      image: {
+        class: ImageTool,
+        config: {
+          uploader: {
+            /**
+             * Upload file to the server and return an uploaded image data
+             * @param {File} file - file selected from the device or pasted by drag-n-drop
+             * @return {Promise.<{success, file: {url}}>}
+             */
+            uploadByFile,
+            /**
+             * Send URL-string to the server. Backend should load image by this URL and return an uploaded image data
+             * @param {string} url - pasted image URL
+             * @return {Promise.<{success, file: {url}}>}
+             */
+            uploadByUrl
+          }
+        }
+      },
       list: List,
       code: CodeTool,
       quote: QuoteTool,
@@ -41,12 +81,8 @@ onMounted(() => nextTick(() => {
       underline: Underline,
       embed: Embed,
       inlineCode: InlineCodeTool
-    },
-    onReady() {
-      //
     }
   })
-
 }))
 </script>
 

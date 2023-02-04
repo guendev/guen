@@ -14,12 +14,12 @@ export default defineNuxtPlugin(nuxtApp => {
     const firebaseConfig = {
         apiKey: "AIzaSyCsvbX-cmCVe0VfCxVuNp1aNV-xDDqYrMg",
         authDomain: "guen-3b189.firebaseapp.com",
+        databaseURL: "https://guen-3b189-default-rtdb.asia-southeast1.firebasedatabase.app",
         projectId: "guen-3b189",
         storageBucket: "guen-3b189.appspot.com",
         messagingSenderId: "885306431413",
         appId: "1:885306431413:web:80ef79a32dc3c32b48ebfc",
-        measurementId: "G-ZDS179STW7",
-        databaseURL: "https://guen-3b189-default-rtdb.asia-southeast1.firebasedatabase.app"
+        measurementId: "G-ZDS179STW7"
     }
 
 // Initialize Firebase

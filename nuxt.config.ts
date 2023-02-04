@@ -60,6 +60,11 @@ export default defineNuxtConfig({
             { name: 'onValue', from: 'firebase/database', as: 'dbOnValue' },
             { name: 'getAuth', from: '@firebase/auth' },
             { name: 'useRTDB', from: '@vueuse/firebase/useRTDB' },
+            // firestore
+            { name: 'getStorage', from: 'firebase/storage' },
+            { name: 'ref', from: 'firebase/storage', as: 'fsRef' },
+            { name: 'uploadBytes', from: 'firebase/storage', as: 'fsUploadBytes' },
+            { name: 'getDownloadURL', from: 'firebase/storage', as: 'fsGetDownloadURL' }
         ]
     },
     // extend route
