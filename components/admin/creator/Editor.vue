@@ -1,5 +1,7 @@
 <template>
-  <div id="editor"></div>
+  <div class="prose prose-slate lg:prose-lg mx-auto max-w-none">
+    <div id="editor"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -24,6 +26,7 @@ onMounted(() => nextTick(() => {
 
   editor.value = new EditorJS({
     holder: 'editor',
+    placeholder: 'Write your story...',
     tools: {
       header: Header,
       image: ImageTool,
@@ -37,7 +40,10 @@ onMounted(() => nextTick(() => {
       checklist: CheckListTool,
       underline: Underline,
       embed: Embed,
-      inlineCode: InlineCodeTool,
+      inlineCode: InlineCodeTool
+    },
+    onReady() {
+      //
     }
   })
 

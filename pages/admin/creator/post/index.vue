@@ -1,5 +1,5 @@
 <template>
-  <blog-wrapper>
+  <blog-wrapper :prose="false">
     <client-only>
       <admin-creator-post />
     </client-only>
