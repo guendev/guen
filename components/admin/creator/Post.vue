@@ -2,7 +2,7 @@
   <div>
     <form>
       <input
-          v-model="title"
+          v-model.trim="title"
           type="text"
           class="w-full py-2.5 focus:outline-none text-[22px] border-b font-semibold pr-5 placeholder-gray-400 placeholder:font-normal"
           placeholder="Post name"
@@ -83,7 +83,7 @@
       >
         <Icon :name="isUploading ? 'line-md:uploading-loop' : isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>
         <span class="text-[13px] font-semibold ml-1">
-          {{ isNewDoc ? 'UPDATE NOW' : 'PUBLIC NOW' }}
+          {{ isNewDoc ? 'PUBLIC NOW' : 'UPDATE NOW' }}
         </span>
       </button>
     </includes-teleport>
@@ -174,11 +174,13 @@ watch(files, (val) => val?.length && uploadImage(val.item(0)!))
 // validate for the form, the field form.value.title[en] is required
 const isUploading = ref(false)
 const publicNow = async () => {
-  isUploading.value = true
   if (!form.value.title['en']) {
+    console.log('Require english title')
     // Todo: fire a notify
     return
   }
+  isUploading.value = true
+
   const id = isNewDoc.value ? slugify(form.value.title['en'], { lower: true }) : route.params.id as string
   const createdAt: number = isNewDoc.value ? Date.now() : (form.value as PostEntity).createdAt
 

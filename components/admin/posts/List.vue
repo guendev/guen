@@ -6,13 +6,17 @@
         <span v-if="posts.length">{{ posts.length }}</span>
       </h2>
 
-      <button
-          class="bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-1.5 flex justify-center items-center shadow-default shadow-primary-300"
-          @click="() => $router.push('/admin/creator/post')"
-      >
-        <Icon name="ic:sharp-plus"/>
-        <span class="text-[13px] font-semibold ml-1">Add New</span>
-      </button>
+      <div v-if="false" class="w-[300px] flex items-center">
+        <Icon
+            name="ri:search-line"
+            class="flex-shrink-0 text-[20px] text-gray-500"
+        />
+        <input
+            type="text"
+            class="h-full pl-2 focus:outline-0 w-full text-[15px] ml-1"
+            placeholder="Keyword..."
+        />
+      </div>
 
     </div>
 
