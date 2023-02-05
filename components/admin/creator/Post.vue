@@ -77,10 +77,11 @@
     </form>
     <includes-teleport to="#header-actions">
       <button
-          class="ml-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300"
+          class="ml-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300 transition disabled:transition disabled:opacity-60"
+          :disabled="isUploading || isUploadingImage || isGettingDoc"
           @click="publicNow"
       >
-        <Icon :name="isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>
+        <Icon :name="isUploading ? 'line-md:uploading-loop' : isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>
         <span class="text-[13px] font-semibold ml-1">
           {{ isNewDoc ? 'UPDATE NOW' : 'PUBLIC NOW' }}
         </span>
@@ -110,11 +111,13 @@ watch(form, (val) => {
 const route = useRoute()
 const router = useRouter()
 const isNewDoc = computed(() => !(/^admin-posts-id/.test(route.name as string)))
+const isGettingDoc = ref(false)
 const initForm = async () => {
   //admin-posts-id
   if(isNewDoc) {
     form.value = backup.value
   } else {
+    isGettingDoc.value = true
     const docSnap = await fsGetDoc(fsDocInstance(getFirestore(), 'posts', route.params.id as string))
     if(docSnap.exists()) {
       form.value = docSnap.data() as PostForm
@@ -122,6 +125,7 @@ const initForm = async () => {
     } else {
       //
     }
+    isGettingDoc.value = false
   }
 }
 
@@ -144,19 +148,19 @@ const content = computed<OutputData>({
 
 // Upload
 const upload = useUpload()
-const loadingUploadImage = ref(false)
+const isUploadingImage = ref(false)
 const { files, open, reset } = useFileDialog({
   multiple: false,
   accept: 'image/*'
 })
 const uploadImage = async (file: File) => {
-  loadingUploadImage.value = true
+  isUploadingImage.value = true
   try {
     form.value.image = await upload.toFireStore(file, 'posts')
   } catch (e) {
     //
   }
-  loadingUploadImage.value = false
+  isUploadingImage.value = false
   reset()
 }
 watch(files, (val) => val?.length && uploadImage(val.item(0)!))
@@ -164,7 +168,9 @@ watch(files, (val) => val?.length && uploadImage(val.item(0)!))
 
 // submit post
 // validate for the form, the field form.value.title[en] is required
+const isUploading = ref(false)
 const publicNow = async () => {
+  isUploading.value = true
   if (!form.value.title['en']) {
     // Todo: fire a notify
     return
@@ -185,6 +191,7 @@ const publicNow = async () => {
   } catch (e) {
     //
   }
+  isUploading.value = false
 }
 </script>
 
