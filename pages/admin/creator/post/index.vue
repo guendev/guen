@@ -3,6 +3,7 @@
     <client-only>
       <admin-creator-post />
     </client-only>
+    <includes-languager />
   </blog-wrapper>
 </template>
 

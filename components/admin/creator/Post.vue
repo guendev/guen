@@ -75,8 +75,17 @@
       </client-only>
 
     </form>
-
-    <includes-languager />
+    <includes-teleport to="#header-actions">
+      <button
+          class="ml-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300"
+          @click="publicNow"
+      >
+        <Icon name="ic:sharp-plus"/>
+        <span class="text-[13px] font-semibold ml-1">
+          PUBLIC NOW
+        </span>
+      </button>
+    </includes-teleport>
 
   </div>
 </template>
@@ -129,8 +138,13 @@ const uploadImage = async (file: File) => {
   loadingUploadImage.value = false
   reset()
 }
-
 watch(files, (val) => val?.length && uploadImage(val.item(0)!))
+
+
+// submit post
+const publicNow = async () => {
+
+}
 </script>
 
 <style scoped>

@@ -64,7 +64,11 @@ export default defineNuxtConfig({
             { name: 'getStorage', from: 'firebase/storage' },
             { name: 'ref', from: 'firebase/storage', as: 'fsRef' },
             { name: 'uploadBytes', from: 'firebase/storage', as: 'fsUploadBytes' },
-            { name: 'getDownloadURL', from: 'firebase/storage', as: 'fsGetDownloadURL' }
+            { name: 'getDownloadURL', from: 'firebase/storage', as: 'fsGetDownloadURL' },
+
+            // firedatabase
+            { name: 'setDoc', from: 'firebase/firestore', as: 'fsSetDoc' },
+            { name: 'doc', from: 'firebase/firestore', as: 'fsDocInstance' }
         ]
     },
     i18n: {
