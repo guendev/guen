@@ -106,7 +106,9 @@ const categories = ref<string[]>(['LGBTQ+', 'Foreign Language', 'Javascript', 'S
 // backing form up automatically by using localstorage
 const backup = useStorage<PostForm>('_post_form', PostEntityDefault)
 watch(form, (val) => {
-  backup.value = toRaw(val)
+  if(isNewDoc.value) {
+    backup.value = toRaw(val)
+  }
 }, { deep: true })
 
 const route = useRoute()
@@ -190,7 +192,10 @@ const publicNow = async () => {
   try {
     await fsSetDoc(fsDocInstance(getFirestore(), "posts", id), doc)
     backup.value = null
-    setTimeout(() => router.replace(`/admin/posts/${id}`), 1000)
+    localStorage.removeItem('_post_form')
+    if(isNewDoc.value) {
+      router.replace(`/admin/posts/${id}`)
+    }
   } catch (e) {
     //
   }
