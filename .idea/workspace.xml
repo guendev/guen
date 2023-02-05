@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/admin/creator/Editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/admin/creator/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Post.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entities/post.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/entities/post.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/creator/post/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/creator/post/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/posts/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/posts/[id].vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,7 @@
       <workItem from="1675417454767" duration="7917000" />
       <workItem from="1675521123205" duration="6518000" />
       <workItem from="1675527653844" duration="1417000" />
-      <workItem from="1675605845889" duration="7781000" />
+      <workItem from="1675605845889" duration="8816000" />
     </task>
     <task id="LOCAL-00001" summary="cm">
       <created>1675324256100</created>
@@ -375,7 +372,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675612861144</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="auto backup support">
+      <created>1675613684343</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1675613684343</updated>
+    </task>
+    <task id="LOCAL-00041" summary="auto backup support">
+      <created>1675613793885</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1675613793885</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
