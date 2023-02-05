@@ -80,9 +80,9 @@
           class="ml-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300"
           @click="publicNow"
       >
-        <Icon name="ic:sharp-plus"/>
+        <Icon :name="isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>
         <span class="text-[13px] font-semibold ml-1">
-          PUBLIC NOW
+          {{ isNewDoc ? 'UPDATE NOW' : 'PUBLIC NOW' }}
         </span>
       </button>
     </includes-teleport>
