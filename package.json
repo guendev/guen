@@ -49,6 +49,7 @@
     "firebase": "^9.17.0",
     "jsonwebtoken": "^9.0.0",
     "party-js": "^2.2.0",
-    "pinia": "^2.0.29"
+    "pinia": "^2.0.29",
+    "slugify": "^1.6.5"
   }
 }

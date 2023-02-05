@@ -3,16 +3,17 @@ import {OutputData} from "@editorjs/editorjs";
 import {ImageEntity} from "~/entities/image.entity";
 
 export interface PostEntity {
-    id: number;
+    id: string;
     title: Record<LanguageEntity, string>
     content: Record<LanguageEntity, OutputData>
     description: Record<LanguageEntity, string>
     image: ImageEntity;
     category: string
-    createdAt: number;
+    createdAt: number
+    updatedAt: number
 }
 
-export type PostForm = Omit<PostEntity, 'id' | 'createdAt'>
+export type PostForm = Omit<PostEntity, 'id' | 'createdAt' | 'updatedAt'>
 
 export const PostEntityDefault: PostForm = {
     title: {

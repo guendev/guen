@@ -92,7 +92,8 @@
 
 <script lang="ts" setup>
 import { useStorage } from '@vueuse/core'
-import {PostEntityDefault, PostForm} from "~/entities/post.entity"
+import slugify from 'slugify'
+import {PostEntity, PostEntityDefault, PostForm} from "~/entities/post.entity"
 import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs"
 
@@ -142,8 +143,27 @@ watch(files, (val) => val?.length && uploadImage(val.item(0)!))
 
 
 // submit post
+// validate for the form, the field form.value.title[en] is required
 const publicNow = async () => {
+  if (!form.value.title['en']) {
+    // Todo: fire a notify
+    return
+  }
+  const id = slugify(form.value.title['en'], { lower: true })
 
+  const doc: PostEntity = {
+    id,
+    ...toRaw(form.value),
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  }
+
+  try {
+    await fsSetDoc(fsDocInstance(getFirestore(), "posts", id), doc)
+    // Todo redirect to post URL
+  } catch (e) {
+    //
+  }
 }
 </script>
 

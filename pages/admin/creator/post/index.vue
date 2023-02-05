@@ -2,8 +2,8 @@
   <blog-wrapper :prose="false">
     <client-only>
       <admin-creator-post />
+      <includes-languager />
     </client-only>
-    <includes-languager />
   </blog-wrapper>
 </template>
 

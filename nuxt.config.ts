@@ -68,7 +68,8 @@ export default defineNuxtConfig({
 
             // firedatabase
             { name: 'setDoc', from: 'firebase/firestore', as: 'fsSetDoc' },
-            { name: 'doc', from: 'firebase/firestore', as: 'fsDocInstance' }
+            { name: 'doc', from: 'firebase/firestore', as: 'fsDocInstance' },
+            { name: 'getFirestore', from: 'firebase/firestore' }
         ]
     },
     i18n: {
