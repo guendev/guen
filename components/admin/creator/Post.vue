@@ -82,14 +82,20 @@
 </template>
 
 <script lang="ts" setup>
-
+import { useStorage } from '@vueuse/core'
 import {PostEntityDefault, PostForm} from "~/entities/post.entity"
 import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs"
 
 const form = ref<PostForm>(PostEntityDefault)
-
 const categories = ref<string[]>(['LGBTQ+', 'Foreign Language', 'Javascript', 'Swift'])
+// backing form up automatically by using localstorage
+const backup = useStorage<PostForm>('_post_form', PostEntityDefault)
+watch(form, (val) => {
+  backup.value = toRaw(val)
+}, { deep: true })
+
+onMounted(() => form.value = backup.value)
 
 // form field by using getter and setter of computed
 const { locale } = useI18n()
@@ -97,12 +103,10 @@ const title = computed<string>({
   get: () => form.value.title[locale.value as LanguageEntity],
   set: (val) => form.value.title[locale.value as LanguageEntity] = val
 })
-
 const description = computed<string>({
   get: () => form.value.description[locale.value as LanguageEntity],
   set: (val) => form.value.description[locale.value as LanguageEntity] = val
 })
-
 const content = computed<OutputData>({
   get: () => form.value.content[locale.value as LanguageEntity],
   set: (val) => form.value.content[locale.value as LanguageEntity] = val
