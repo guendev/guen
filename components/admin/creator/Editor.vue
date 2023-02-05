@@ -20,6 +20,7 @@ import ImageTool from '@editorjs/image'
 import Underline from '@editorjs/underline'
 import Embed from '@editorjs/embed'
 import InlineCodeTool from '@editorjs/inline-code'
+import {ImageEntity} from "~/entities/image.entity";
 
 const props = defineProps<{
   value: OutputData
@@ -35,8 +36,18 @@ const uploadByFile = async (file: File) => {
     file: imageData
   }
 }
-const uploadByUrl = (url: string) => {
-  console.log(url)
+const uploadByUrl = async (url: string) => {
+  const imageData: ImageEntity = {
+    url: url,
+    path: '',
+    store: 'internet',
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  }
+  return {
+    success: 1,
+    file: imageData
+  }
 }
 
 // binding two ways value by using emit
@@ -92,11 +103,25 @@ onMounted(() => nextTick(() => initEditor()))
 
 
 const setData = (data: OutputData) => {
-  editor.value?.render(data)
+  try {
+    editor.value?.render(data)
+  } catch (e) {
+    //
+  }
+}
+const destroy = () => {
+  try {
+    editor.value?.destroy()
+  } catch (e) {
+    //
+  }
 }
 
+onUnmounted(() => destroy())
+
 defineExpose({
-  setData
+  setData,
+  destroy
 })
 </script>
 

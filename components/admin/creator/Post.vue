@@ -71,7 +71,7 @@
       </div>
 
       <client-only>
-        <admin-creator-editor ref="editorRef" class="mt-7" v-model:value="content" />
+        <admin-creator-editor v-if="isShowEditor" ref="editorRef" class="mt-7" v-model:value="content" />
       </client-only>
 
     </form>
@@ -99,6 +99,7 @@ import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs"
 
 const editorRef = ref()
+const isShowEditor = ref(false)
 
 const form = ref<PostForm|PostEntity>(PostEntityDefault)
 const categories = ref<string[]>(['LGBTQ+', 'Foreign Language', 'Javascript', 'Swift'])
@@ -114,19 +115,20 @@ const isNewDoc = computed(() => !(/^admin-posts-id/.test(route.name as string)))
 const isGettingDoc = ref(false)
 const initForm = async () => {
   //admin-posts-id
-  if(isNewDoc) {
+  if(!(/^admin-posts-id/.test(route.name as string))) {
     form.value = backup.value
   } else {
     isGettingDoc.value = true
     const docSnap = await fsGetDoc(fsDocInstance(getFirestore(), 'posts', route.params.id as string))
     if(docSnap.exists()) {
       form.value = docSnap.data() as PostForm
-      editorRef.value?.setData(content.value)
     } else {
-      //
+      // Todo: Notify
+      router.replace(`/admin/creator/post`)
     }
     isGettingDoc.value = false
   }
+  isShowEditor.value = true
 }
 
 onMounted(() => initForm())
@@ -187,7 +189,8 @@ const publicNow = async () => {
 
   try {
     await fsSetDoc(fsDocInstance(getFirestore(), "posts", id), doc)
-    // Todo redirect to post URL
+    backup.value = null
+    setTimeout(() => router.replace(`/admin/posts/${id}`), 1000)
   } catch (e) {
     //
   }
