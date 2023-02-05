@@ -99,7 +99,7 @@ import {OutputData} from "@editorjs/editorjs"
 
 const editorRef = ref()
 
-const form = ref<PostForm>(PostEntityDefault)
+const form = ref<PostForm|PostEntity>(PostEntityDefault)
 const categories = ref<string[]>(['LGBTQ+', 'Foreign Language', 'Javascript', 'Swift'])
 // backing form up automatically by using localstorage
 const backup = useStorage<PostForm>('_post_form', PostEntityDefault)
@@ -109,9 +109,12 @@ watch(form, (val) => {
 
 const route = useRoute()
 const router = useRouter()
+const isNewDoc = computed(() => !(/^admin-posts-id/.test(route.name as string)))
 const initForm = async () => {
   //admin-posts-id
-  if(/^admin-posts-id/.test(route.name as string)) {
+  if(isNewDoc) {
+    form.value = backup.value
+  } else {
     const docSnap = await fsGetDoc(fsDocInstance(getFirestore(), 'posts', route.params.id as string))
     if(docSnap.exists()) {
       form.value = docSnap.data() as PostForm
@@ -119,8 +122,6 @@ const initForm = async () => {
     } else {
       //
     }
-  } else {
-    form.value = backup.value
   }
 }
 
@@ -168,12 +169,13 @@ const publicNow = async () => {
     // Todo: fire a notify
     return
   }
-  const id = slugify(form.value.title['en'], { lower: true })
+  const id = isNewDoc.value ? slugify(form.value.title['en'], { lower: true }) : route.params.id as string
+  const createdAt: number = isNewDoc.value ? Date.now() : (form.value as PostEntity).createdAt
 
   const doc: PostEntity = {
     id,
     ...toRaw(form.value),
-    createdAt: Date.now(),
+    createdAt,
     updatedAt: Date.now()
   }
 
