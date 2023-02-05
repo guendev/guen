@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import EditorJS from '@editorjs/editorjs'
+import EditorJS, {API, OutputData} from '@editorjs/editorjs'
 
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
@@ -21,34 +21,34 @@ import Underline from '@editorjs/underline'
 import Embed from '@editorjs/embed'
 import InlineCodeTool from '@editorjs/inline-code'
 
-const editor = ref<EditorJS|undefined>()
+const props = defineProps<{
+  value: OutputData
+}>()
 
-const getPreviewURL = async (path: string) => {
-  return fsGetDownloadURL(fsRef(getStorage(), path))
-}
+const editor = ref<EditorJS|undefined>()
+const upload = useUpload()
 
 const uploadByFile = async (file: File) => {
-  // upload file to firebase storage with file name as the current timestamp
-  const res = await fsUploadBytes(fsRef(getStorage(), `/posts/${Date.now()}`), file)
-  const previewUrl = await getPreviewURL(res.metadata.fullPath)
+  const imageData = await upload.toFireStore(file, 'posts')
   return {
     success: 1,
-    file: {
-      url: previewUrl,
-      path: res.metadata.fullPath,
-      store: 'firebase'
-    }
+    file: imageData
   }
 }
-
 const uploadByUrl = (url: string) => {
   console.log(url)
 }
 
-onMounted(() => nextTick(() => {
+// binding two ways value by using emit
+const emit = defineEmits<{
+  (e: 'update:value', data: OutputData): void
+}>()
+
+const initEditor = () => {
   editor.value = new EditorJS({
     holder: 'editor',
     placeholder: 'Write your story...',
+    data: props.value,
     tools: {
       header: Header,
       image: {
@@ -81,9 +81,14 @@ onMounted(() => nextTick(() => {
       underline: Underline,
       embed: Embed,
       inlineCode: InlineCodeTool
+    },
+    onChange(api: API, event: CustomEvent) {
+      api.saver.save().then((data) => emit('update:value', data))
     }
   })
-}))
+}
+
+onMounted(() => nextTick(() => initEditor()))
 </script>
 
 <style>

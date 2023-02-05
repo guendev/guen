@@ -67,5 +67,24 @@ export default defineNuxtConfig({
             { name: 'getDownloadURL', from: 'firebase/storage', as: 'fsGetDownloadURL' }
         ]
     },
+    i18n: {
+        locales: [
+            {
+                code: 'en',
+                file: 'en-US.json'
+            },
+            {
+                code: 'vi',
+                file: 'vi-VI.json'
+            },
+            {
+                code: 'jp',
+                file: 'jp-JP.json'
+            }
+        ],
+        lazy: true,
+        langDir: 'lang',
+        defaultLocale: 'en'
+    },
     // extend route
 })
