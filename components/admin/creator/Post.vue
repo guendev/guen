@@ -71,7 +71,7 @@
       </div>
 
       <client-only>
-        <admin-creator-editor class="mt-7" v-model:value="content" />
+        <admin-creator-editor ref="editorRef" class="mt-7" v-model:value="content" />
       </client-only>
 
     </form>
@@ -97,6 +97,8 @@ import {PostEntity, PostEntityDefault, PostForm} from "~/entities/post.entity"
 import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs"
 
+const editorRef = ref()
+
 const form = ref<PostForm>(PostEntityDefault)
 const categories = ref<string[]>(['LGBTQ+', 'Foreign Language', 'Javascript', 'Swift'])
 // backing form up automatically by using localstorage
@@ -105,7 +107,24 @@ watch(form, (val) => {
   backup.value = toRaw(val)
 }, { deep: true })
 
-onMounted(() => form.value = backup.value)
+const route = useRoute()
+const router = useRouter()
+const initForm = async () => {
+  //admin-posts-id
+  if(/^admin-posts-id/.test(route.name as string)) {
+    const docSnap = await fsGetDoc(fsDocInstance(getFirestore(), 'posts', route.params.id as string))
+    if(docSnap.exists()) {
+      form.value = docSnap.data() as PostForm
+      editorRef.value?.setData(content.value)
+    } else {
+      //
+    }
+  } else {
+    form.value = backup.value
+  }
+}
+
+onMounted(() => initForm())
 
 // form field by using getter and setter of computed
 const { locale } = useI18n()

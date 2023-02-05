@@ -89,6 +89,15 @@ const initEditor = () => {
 }
 
 onMounted(() => nextTick(() => initEditor()))
+
+
+const setData = (data: OutputData) => {
+  editor.value?.render(data)
+}
+
+defineExpose({
+  setData
+})
 </script>
 
 <style>

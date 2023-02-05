@@ -1,13 +1,12 @@
 <template>
-  <blog-wrapper>
+  <blog-wrapper :prose="false">
     <client-only>
-      <admin-posts-list />
+      <admin-creator-post />
+      <includes-languager />
     </client-only>
   </blog-wrapper>
 </template>
 
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>
