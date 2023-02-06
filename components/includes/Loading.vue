@@ -13,7 +13,7 @@
         v-if="loading"
         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2]"
     >
-      <Icon name="svg-spinners:ring-resize" class="text-[50px] text-primary-600" />
+      <Icon name="svg-spinners:ring-resize" class="text-[50px] text-primary-500" />
     </div>
 
   </div>

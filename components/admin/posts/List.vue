@@ -22,7 +22,7 @@
 
     </div>
 
-    <div class="mt-7">
+    <includes-loading class="mt-7" :loading="loading">
 
       <div
           v-for="(post, index) in posts"
@@ -36,18 +36,23 @@
         <vue-lottie-player path="https://assets7.lottiefiles.com/private_files/lf30_i0cTdc.json" autoplay loop height="90%" width="100%"></vue-lottie-player>
       </div>
 
-    </div>
+    </includes-loading>
 
   </div>
 </template>
 
 <script lang="ts" setup>
-import {PostEntity} from "~/entities/post.entity";
-const postsRaw = useFirestore(fsCollection(getFirestore(), 'posts'))
+import {PostEntity} from "~/entities/post.entity"
+
+// init value
+const loading = ref(true)
+const postsRaw = useFirestore(fsCollection(getFirestore(), 'posts'), [])
+
+watch(postsRaw, (val) => loading.value = false)
 
 // order post by createdAt
 const posts = computed<PostEntity[]>(() => {
-  return (postsRaw.value as PostEntity[] || []).sort((a, b) => {
+  return (postsRaw.value as PostEntity[]).sort((a, b) => {
     return b.createdAt - a.createdAt
   })
 })
