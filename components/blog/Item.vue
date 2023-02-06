@@ -5,14 +5,26 @@
     </div>
 
     <div class="p-3.5">
-      <h2 class="text-lg font-semibold">{{ blog.title }}</h2>
+      <h2 class="text-lg font-semibold">{{ title }}</h2>
 
-      <p class="text-[15px] text-gray-500 line-clamp-3 mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur consectetur eos eveniet laboriosam quo velit vitae voluptatum. Facere fugit qui suscipit tenetur velit! Autem consequatur ducimus iste reprehenderit voluptas.</p>
+      <p class="text-[15px] text-gray-500 line-clamp-3 mt-1">
+        {{ description }}
+      </p>
 
-      <div class="mt-2.5 flex items-center font-semibold">
-        <div class="text-primary-600 text-[14px]">LGBTQ+</div>
+      <div class="mt-2.5 flex items-center">
+        <div class="text-primary-600 text-[14px] font-semibold">
+          {{ blog.category }}
+        </div>
         <div class="h-[13px] w-[2px] bg-gray-400 rounded-lg mx-3"></div>
-        <div class="text-gray-500 text-[12px]">4H AGO</div>
+        <div class="text-gray-400 text-[14px]">
+          {{ $dayjs(blog.createdAt).fromNow() }}
+        </div>
+        <template v-if="blog.view">
+          <div class="h-[13px] w-[2px] bg-gray-400 rounded-lg mx-3"></div>
+          <div class="text-gray-400 text-[14px] ml-1">
+            {{ post.view || '0' }} views
+          </div>
+        </template>
       </div>
 
     </div>
@@ -26,6 +38,8 @@ import {PostEntity} from "~/entities/post.entity";
 const props = defineProps<{
   blog: PostEntity
 }>()
+
+const { title, description } = usePost(props.blog)
 </script>
 
 <style scoped></style>

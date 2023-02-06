@@ -48,7 +48,7 @@ import {PostEntity} from "~/entities/post.entity"
 const loading = ref(true)
 const postsRaw = useFirestore(fsCollection(getFirestore(), 'posts'), [])
 
-watch(postsRaw, (val) => loading.value = false)
+watch(postsRaw, () => loading.value = false)
 
 // order post by createdAt
 const posts = computed<PostEntity[]>(() => {
