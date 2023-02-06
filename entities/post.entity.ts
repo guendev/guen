@@ -9,6 +9,7 @@ export interface PostEntity {
     description: Record<LanguageEntity, string>
     image: ImageEntity;
     category: string
+    view: number
     createdAt: number
     updatedAt: number
 }
@@ -38,6 +39,7 @@ export const PostEntityDefault: PostForm = {
         jp: ''
     },
     category: '',
+    view: 0,
     image: {
         url: '',
         path: '',
