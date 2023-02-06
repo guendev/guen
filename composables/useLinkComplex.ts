@@ -23,6 +23,13 @@ export const useLinkComplex = () => {
             name: nameWithPrefix('blog')
         }),
 
+        blogPost: (post: PostEntity): RouteLocationRaw => ({
+            name: nameWithPrefix('blog-id'),
+            params: {
+                id: post.id
+            }
+        }),
+
         admin: {
             post: (post: PostEntity): RouteLocationRaw => ({
                 name: nameWithPrefix('admin-posts-id'),
