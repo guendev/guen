@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/components/blog/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composables/useLinkComplex.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/useLinkComplex.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/blog/View.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/editor/Render.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composables/usePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/usePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/blog/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/blog/[id].vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,21 +101,7 @@
       <workItem from="1675643155609" duration="3071000" />
       <workItem from="1675653891108" duration="2638000" />
       <workItem from="1675659399644" duration="909000" />
-      <workItem from="1675667496828" duration="4912000" />
-    </task>
-    <task id="LOCAL-00014" summary="cm">
-      <created>1675359155982</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1675359155982</updated>
-    </task>
-    <task id="LOCAL-00015" summary="cm">
-      <created>1675361688564</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1675361688564</updated>
+      <workItem from="1675667496828" duration="9688000" />
     </task>
     <task id="LOCAL-00016" summary="cm">
       <created>1675361739202</created>
@@ -445,7 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675672294465</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="add dayjs">
+      <created>1675672679634</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1675672679634</updated>
+    </task>
+    <task id="LOCAL-00064" summary="add dayjs">
+      <created>1675672682556</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1675672682556</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

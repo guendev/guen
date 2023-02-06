@@ -1,5 +1,5 @@
 import {MaybeRef} from "@vueuse/core";
-import {PostEntity} from "~/entities/post.entity"
+import {PostEntity, PostEntityDefault} from "~/entities/post.entity"
 import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs";
 import {Ref} from "vue";
@@ -10,12 +10,10 @@ interface Triggers {
 
 type PostDynamic = Pick<PostEntity, 'title' | 'description' | 'content'>
 
-export const usePost = (post: MaybeRef<PostDynamic>) => {
+export const usePost = (post?: MaybeRef<PostDynamic>) => {
     const { locale } = useI18n()
-
-
     // convert MaybeRef to Ref
-    const _form: Ref<PostDynamic> = isRef(post) ? post : ref(post)
+    const _form: Ref<PostDynamic> = isRef(post) ? post : ref(PostEntityDefault)
 
     const title = computed<string>({
         get: () => _form.value.title[locale.value as LanguageEntity],
@@ -30,9 +28,14 @@ export const usePost = (post: MaybeRef<PostDynamic>) => {
         set: (val) => _form.value.content[locale.value as LanguageEntity] = val
     })
 
+    const refresh = (_post: MaybeRef<PostDynamic>) => {
+        _form.value = isRef(_post) ? _post.value : _post
+    }
+
     return {
         title,
         description,
-        content
+        content,
+        refresh
     }
 }
