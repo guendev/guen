@@ -129,7 +129,10 @@ const initForm = async () => {
     if(docSnap.exists()) {
       form.value = docSnap.data() as PostForm
     } else {
-      // Todo: Notify
+      fire({
+        type: NotifyType.ERROR,
+        message: 'Post not found'
+      })
       router.replace(`/admin/creator/post`)
     }
     isGettingDoc.value = false
