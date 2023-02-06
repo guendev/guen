@@ -32,6 +32,10 @@
         <admin-posts-item :post="post" />
       </div>
 
+      <div v-if="!posts.length" class="w-[300px] mx-auto">
+        <vue-lottie-player path="https://assets7.lottiefiles.com/private_files/lf30_i0cTdc.json" autoplay loop height="90%" width="100%"></vue-lottie-player>
+      </div>
+
     </div>
 
   </div>

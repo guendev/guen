@@ -7,6 +7,22 @@ export const useLinkComplex = () => {
 
     return {
 
+        home: (): RouteLocationRaw => ({
+            name: nameWithPrefix('index')
+        }),
+
+        about: (): RouteLocationRaw => ({
+            name: nameWithPrefix('about')
+        }),
+
+        services: (): RouteLocationRaw => ({
+            name: nameWithPrefix('services')
+        }),
+
+        blog: (): RouteLocationRaw => ({
+            name: nameWithPrefix('blog')
+        }),
+
         admin: {
             post: (post: PostEntity): RouteLocationRaw => ({
                 name: nameWithPrefix('admin-posts-id'),

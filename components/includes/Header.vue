@@ -61,15 +61,18 @@
 <script lang="ts" setup>
 import {MenuEntity} from "~/entities/menu.entity"
 import {useNuxtApp} from "#imports";
+
+const link = useLinkComplex()
+
 const menus = computed<MenuEntity[]>(() => [
   {
     title: 'Home',
-    src: '/',
+    src: link.home(),
     icon: 'fluent-emoji-flat:beating-heart'
   },
   {
     title: 'About',
-    src: '/about',
+    src: link.about(),
     icon: 'fluent-emoji-flat:four-leaf-clover'
   },
   // {
@@ -79,12 +82,12 @@ const menus = computed<MenuEntity[]>(() => [
   // },
   {
     title: 'Services',
-    src: '/services',
+    src: link.services(),
     icon: 'fluent-emoji-flat:cyclone'
   },
   {
     title: 'Blog',
-    src: '/blog',
+    src: link.blog(),
     icon: 'fluent-emoji-flat:pencil'
   }
 ])
