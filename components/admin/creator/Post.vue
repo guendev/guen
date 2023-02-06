@@ -235,8 +235,19 @@ const publicNow = async () => {
 
 // Remove
 const isRemoving = ref(false)
-const removePost = () => {
-
+const removePost = async () => {
+  isRemoving.value = true
+  try {
+    await fsDeleteDoc(fsDocInstance(getFirestore(), 'posts', route.params.id as string))
+    fire({
+      type: NotifyType.SUCCESS,
+      message: 'Removed Successfully'
+    })
+    router.replace(link.admin.posts())
+  } catch (e) {
+    //
+  }
+  isRemoving.value = false
 }
 </script>
 

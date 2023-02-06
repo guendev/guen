@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/components/admin/creator/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Post.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composables/useLinkComplex.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/useLinkComplex.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/posts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/posts/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,21 +99,7 @@
       <workItem from="1675643155609" duration="3071000" />
       <workItem from="1675653891108" duration="2638000" />
       <workItem from="1675659399644" duration="909000" />
-      <workItem from="1675667496828" duration="1635000" />
-    </task>
-    <task id="LOCAL-00007" summary="cm">
-      <created>1675344894401</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1675344894401</updated>
-    </task>
-    <task id="LOCAL-00008" summary="cm">
-      <created>1675346840179</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1675346840179</updated>
+      <workItem from="1675667496828" duration="2534000" />
     </task>
     <task id="LOCAL-00009" summary="cm">
       <created>1675348034521</created>
@@ -445,7 +430,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675668610276</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="add dayjs">
+      <created>1675669147243</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1675669147243</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add dayjs">
+      <created>1675669361951</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1675669361951</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

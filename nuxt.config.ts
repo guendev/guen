@@ -72,6 +72,7 @@ export default defineNuxtConfig({
             { name: 'doc', from: 'firebase/firestore', as: 'fsDocInstance' },
             { name: 'getFirestore', from: 'firebase/firestore' },
             { name: 'collection', from: 'firebase/firestore', as: 'fsCollection' },
+            { name: 'deleteDoc', from: 'firebase/firestore', as: 'fsDeleteDoc' },
         ]
     },
     i18n: {
