@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <includes-loading :loading="isLoading">
     <form>
       <input
           v-model.trim="title"
@@ -99,8 +99,7 @@
         </span>
       </button>
     </includes-teleport>
-
-  </div>
+  </includes-loading>
 </template>
 
 <script lang="ts" setup>
@@ -249,6 +248,8 @@ const removePost = async () => {
   }
   isRemoving.value = false
 }
+
+const isLoading = computed(() => isUploading.value || isGettingDoc.value || isRemoving.value)
 </script>
 
 <style scoped>
