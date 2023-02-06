@@ -1,5 +1,8 @@
 <template>
-  <div class="flex">
+  <nuxt-link
+      class="flex"
+      :to="link.admin.post(post)"
+  >
     <div
         class="aspect-w-5 aspect-h-3 overflow-hidden max-w-[220px] rounded-lg shadow-default shadow-primary-100 flex-shrink-0"
     >
@@ -11,15 +14,25 @@
 
       <p class="text-[15px] text-gray-500 line-clamp-3 mt-1">{{ description || '--' }}</p>
 
-      <div class="mt-2.5 flex items-center font-semibold">
-        <div class="text-primary-600 text-[14px]">LGBTQ+</div>
+      <div class="mt-2.5 flex items-center">
+        <div class="text-primary-600 text-[14px] font-semibold">
+          {{ post.category }}
+        </div>
         <div class="h-[13px] w-[2px] bg-gray-400 rounded-lg mx-3"></div>
-        <div class="text-gray-500 text-[12px]">4H AGO</div>
+        <div class="text-gray-400 text-[14px]">
+          {{ $dayjs(post.createdAt).fromNow() }}
+        </div>
+        <template v-if="post.view">
+          <div class="h-[13px] w-[2px] bg-gray-400 rounded-lg mx-3"></div>
+          <div class="text-gray-400 text-[14px] ml-1">
+            {{ post.view || '0' }} views
+          </div>
+        </template>
       </div>
 
     </div>
 
-  </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts" setup>
@@ -30,6 +43,8 @@ const props = defineProps<{
 }>()
 
 const { title, content, description } = usePost(props.post)
+
+const link = useLinkComplex()
 
 </script>
 
