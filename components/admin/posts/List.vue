@@ -22,6 +22,17 @@
 
     </div>
 
+    <div class="mt-7">
+
+      <div
+          v-for="(post, index) in posts"
+          :key="post.id"
+          class="mb-7 last:mb-0"
+      >
+        <admin-posts-item :post="post" />
+      </div>
+
+    </div>
 
   </div>
 </template>
