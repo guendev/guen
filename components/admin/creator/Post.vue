@@ -97,7 +97,7 @@ import slugify from 'slugify'
 import {PostEntity, PostEntityDefault, PostForm} from "~/entities/post.entity"
 import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs"
-import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
+import {NotifyEntity, NotifyType} from "~/entities/notify.entity"
 
 // Notify
 const { fire } = useNotify<NotifyEntity>()
@@ -117,6 +117,8 @@ watch(form, (val) => {
 
 const route = useRoute()
 const router = useRouter()
+const link = useLinkComplex()
+
 const isNewDoc = computed(() => !(/^admin-posts-id/.test(route.name as string)))
 const isGettingDoc = ref(false)
 const initForm = async () => {
@@ -133,7 +135,7 @@ const initForm = async () => {
         type: NotifyType.ERROR,
         message: 'Post not found'
       })
-      router.replace(`/admin/creator/post`)
+      router.replace(link.admin.postCreate())
     }
     isGettingDoc.value = false
   }
@@ -205,7 +207,7 @@ const publicNow = async () => {
     backup.value = null
     localStorage.removeItem('_post_form')
     if(isNewDoc.value) {
-      router.replace(`/admin/posts/${id}`)
+      router.replace(link.admin.post(doc))
     }
 
     fire({

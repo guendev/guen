@@ -13,6 +13,12 @@ export const useLinkComplex = () => {
                 params: {
                     id: post.id
                 }
+            }),
+            posts: (): RouteLocationRaw => ({
+                name: nameWithPrefix('admin-posts')
+            }),
+            postCreate: (): RouteLocationRaw => ({
+                name: nameWithPrefix('admin-creator-post')
             })
         }
 
