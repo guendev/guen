@@ -137,6 +137,17 @@ export default defineComponent({
             return h('div', { class: 'delimiter' })
         },
 
+        renderTable(block: BlockToolData) {
+            const { content } = block
+            return h('table', { class: 'table' }, [
+                h('tbody', {}, content.map((row: any) => {
+                    return h('tr', {}, row.map((cell: any) => {
+                        return h('td', { innerHTML: cell })
+                    }))
+                }))
+            ])
+        },
+
         // render raw html from block.text
         renderRaw(block: BlockToolData) {
             return h('div', { innerHTML: block.html })
@@ -161,6 +172,6 @@ export default defineComponent({
         }
     },
     render() {
-        return h('div', { class: 'editor-render', 'data-version': this.version }, this.elements)
+        return h('div', { class: 'editor-render', 'data-version': this.version, 'block-counter': this.blocks.length }, this.elements)
     }
 })

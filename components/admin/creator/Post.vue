@@ -227,6 +227,7 @@ const publicNow = async () => {
     })
 
   } catch (e) {
+    // console.log(e)
     //
   }
   isUploading.value = false
