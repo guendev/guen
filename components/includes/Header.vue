@@ -31,7 +31,7 @@
           </li>
         </ul>
 
-        <div id="header-actions"></div>
+        <div id="header-actions" class="flex items-center"></div>
 
         <button
             v-if="!$route.path.match(/^\/admin/)"

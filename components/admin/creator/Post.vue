@@ -77,7 +77,19 @@
     </form>
     <includes-teleport to="#header-actions">
       <button
-          class="ml-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300 transition disabled:transition disabled:opacity-60"
+          v-if="!isNewDoc"
+          class="ml-7 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-rose-300 transition disabled:transition disabled:opacity-60"
+          :disabled="isUploading || isUploadingImage || isGettingDoc || isRemoving"
+          @click="removePost"
+      >
+        <Icon :name="isRemoving ? 'line-md:uploading-loop' : 'mingcute:delete-2-line'"/>
+        <span class="text-[13px] font-semibold ml-1">
+          REMOVE
+        </span>
+      </button>
+
+      <button
+          class="ml-7 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300 transition disabled:transition disabled:opacity-60"
           :disabled="isUploading || isUploadingImage || isGettingDoc"
           @click="publicNow"
       >
@@ -219,6 +231,12 @@ const publicNow = async () => {
     //
   }
   isUploading.value = false
+}
+
+// Remove
+const isRemoving = ref(false)
+const removePost = () => {
+
 }
 </script>
 
