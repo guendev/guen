@@ -3,7 +3,9 @@
     <div class="flex items-center justify-between border-b pb-4">
       <h2 class="text-[20px]">
         Post List
-        <span v-if="posts.length">{{ posts.length }}</span>
+        <span v-if="posts.length" class="text-[14px]">
+          ({{ posts.length }})
+        </span>
       </h2>
 
       <div v-if="false" class="w-[300px] flex items-center">
@@ -26,12 +28,11 @@
 
 <script lang="ts" setup>
 import {PostEntity} from "~/entities/post.entity";
-
-const postsRaw = useRTDB<Record<number, PostEntity>>(dbRef(getDatabase(), 'posts'))
+const postsRaw = useFirestore(fsCollection(getFirestore(), 'posts'))
 
 // order post by createdAt
-const posts = computed(() => {
-  return Object.values(postsRaw.value || {}).sort((a, b) => {
+const posts = computed<PostEntity[]>(() => {
+  return (postsRaw.value as PostEntity[] || []).sort((a, b) => {
     return b.createdAt - a.createdAt
   })
 })
