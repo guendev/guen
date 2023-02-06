@@ -97,6 +97,10 @@ import slugify from 'slugify'
 import {PostEntity, PostEntityDefault, PostForm} from "~/entities/post.entity"
 import {LanguageEntity} from "~/entities/language.entity";
 import {OutputData} from "@editorjs/editorjs"
+import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
+
+// Notify
+const { fire } = useNotify<NotifyEntity>()
 
 const editorRef = ref()
 const isShowEditor = ref(false)
@@ -175,8 +179,10 @@ watch(files, (val) => val?.length && uploadImage(val.item(0)!))
 const isUploading = ref(false)
 const publicNow = async () => {
   if (!form.value.title['en']) {
-    console.log('Require english title')
-    // Todo: fire a notify
+    fire({
+      type: NotifyType.ERROR,
+      message: 'Require English Title'
+    })
     return
   }
   isUploading.value = true
@@ -198,6 +204,12 @@ const publicNow = async () => {
     if(isNewDoc.value) {
       router.replace(`/admin/posts/${id}`)
     }
+
+    fire({
+      type: NotifyType.SUCCESS,
+      message: isNewDoc.value ? 'Created Successfully' : 'Updated Successfully'
+    })
+
   } catch (e) {
     //
   }

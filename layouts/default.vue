@@ -5,6 +5,7 @@
     <div class="shadow-default max-w-bootstrap mx-auto px-5 bg-white min-h-[calc(var(--vh,1vh)*100-70px)] relative">
       <NuxtPage />
     </div>
+    <includes-notify />
   </div>
 </template>
 
