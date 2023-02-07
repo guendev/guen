@@ -19,12 +19,6 @@
         <div class="text-gray-400 text-[14px]">
           {{ $dayjs(blog.createdAt).fromNow() }}
         </div>
-        <template v-if="blog.view">
-          <div class="h-[13px] w-[2px] bg-gray-400 rounded-lg mx-3"></div>
-          <div class="text-gray-400 text-[14px] ml-1">
-            {{ post.view || '0' }} views
-          </div>
-        </template>
       </div>
 
     </div>
