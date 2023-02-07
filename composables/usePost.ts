@@ -13,7 +13,7 @@ type PostDynamic = Pick<PostEntity, 'title' | 'description' | 'content'>
 export const usePost = (post?: MaybeRef<PostDynamic>) => {
     const { locale } = useI18n()
     // convert MaybeRef to Ref
-    const _form: Ref<PostDynamic> = isRef(post) ? post : ref(PostEntityDefault)
+    const _form: Ref<PostDynamic> = isRef(post) ? post : ref(post || PostEntityDefault)
 
     const title = computed<string>({
         get: () => _form.value.title[locale.value as LanguageEntity],

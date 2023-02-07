@@ -5,7 +5,7 @@
     </div>
 
     <div class="p-3.5">
-      <h2 class="text-lg font-semibold">{{ title }}</h2>
+      <h2 class="text-lg font-semibold line-clamp-2">{{ title }}</h2>
 
       <p class="text-[15px] text-gray-500 line-clamp-3 mt-1">
         {{ description }}

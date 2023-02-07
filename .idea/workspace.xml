@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/blog/View.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/editor/Render.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/blog/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Item.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composables/usePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/usePost.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/blog/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/blog/[id].vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,21 +100,11 @@
       <workItem from="1675643155609" duration="3071000" />
       <workItem from="1675653891108" duration="2638000" />
       <workItem from="1675659399644" duration="909000" />
-      <workItem from="1675667496828" duration="9688000" />
-    </task>
-    <task id="LOCAL-00016" summary="cm">
-      <created>1675361739202</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1675361739202</updated>
-    </task>
-    <task id="LOCAL-00017" summary="cm">
-      <created>1675362028673</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1675362028673</updated>
+      <workItem from="1675667496828" duration="10854000" />
+      <workItem from="1675741682091" duration="9000" />
+      <workItem from="1675742628792" duration="3000" />
+      <workItem from="1675743200264" duration="418000" />
+      <workItem from="1675785063837" duration="314000" />
     </task>
     <task id="LOCAL-00018" summary="cm">
       <created>1675362459927</created>
@@ -446,7 +435,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675672682556</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="add editor render view">
+      <created>1675677475182</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1675677475182</updated>
+    </task>
+    <task id="LOCAL-00066" summary="add editor render view">
+      <created>1675678028009</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1675678028009</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,6 +461,7 @@
     <MESSAGE value="add upload" />
     <MESSAGE value="auto backup support" />
     <MESSAGE value="add dayjs" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dayjs" />
+    <MESSAGE value="add editor render view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add editor render view" />
   </component>
 </project>
