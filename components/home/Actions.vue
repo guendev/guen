@@ -5,18 +5,18 @@
       <span class="lg:text-[15px] text-[14px] font-semibold">Hire Me</span>
     </button>
 
-    <button class="ml-7 font-bold text-gray-800">
+    <button class="ml-7 font-bold text-gray-800" @click="openProjects">
       Projects
-
       <Icon class="text-[18px]" name="material-symbols:arrow-outward-rounded" />
-
     </button>
 
   </div>
 </template>
 
 <script lang="ts" setup>
-
+const openProjects = () => {
+  window.open('https://github.com/nguyenshort', '_blank')
+}
 </script>
 
 <style scoped></style>
