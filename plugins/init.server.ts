@@ -5,7 +5,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   const token = getCookie(useRequestEvent(), '_token')
 
-  if(token) {
+  if(token && process.server) {
+
+
       try {
           const { user } = await $fetch('/api/me', {
               headers: {
@@ -14,6 +16,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
           })
 
           if(user) {
+              // @ts-ignore
               authStore.user = user
               authStore.token = token
           }

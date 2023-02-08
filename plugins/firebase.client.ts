@@ -38,10 +38,7 @@ export default defineNuxtPlugin(nuxtApp => {
             if (user) {
                 const firebaseToken = await user.getIdToken()
 
-                const userMeta: UserMeta = {
-                    uid: user.uid,
-                    email: user.email,
-                    displayName: user.displayName,
+                const userMeta = {
                     token: firebaseToken
                 }
 
@@ -55,8 +52,19 @@ export default defineNuxtPlugin(nuxtApp => {
                             }
                         })
                         if(token) {
-                            authStore.token = token
-                            authStore.user = userMeta
+
+                            const { user } = await $fetch('/api/me', {
+                                headers: {
+                                    Authorization: 'Bearer ' + token
+                                }
+                            })
+
+                            if (user) {
+
+                                authStore.token = token
+                                // @ts-ignore
+                                authStore.user = user
+                            }
                         }
                         // if(route.path === '/auth') {
                         //     await router.push('/')

@@ -27,12 +27,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     })
 
     const authLink = setContext((_, { headers }) => {
-        // const useUser = useUserStore()
+        const authStore = useAuthStore()
         // return the headers to the context so httpLink can read them
         return {
             headers: {
                 ...headers,
-                authorization: `Bearer __`
+                authorization: `Bearer ${authStore.token}`
             }
         }
     })
