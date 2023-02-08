@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/plugins/apollo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blog/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blog/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composables/usePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/usePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/auth.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/entities/auth.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/firebase.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/firebase.client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/init.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/init.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth.post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/auth.post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/me.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/me.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="Vue Single File Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -38,19 +46,20 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/yuan/guen/plugins&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yuan/WebstormProjects/Guen/guen/types&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/yuan/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8617.44/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/types" />
       <recent name="$PROJECT_DIR$/plugins" />
       <recent name="$PROJECT_DIR$/server" />
     </key>
@@ -104,35 +113,9 @@
       <workItem from="1675741682091" duration="9000" />
       <workItem from="1675742628792" duration="3000" />
       <workItem from="1675743200264" duration="418000" />
-      <workItem from="1675785063837" duration="314000" />
-    </task>
-    <task id="LOCAL-00018" summary="cm">
-      <created>1675362459927</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1675362459927</updated>
-    </task>
-    <task id="LOCAL-00019" summary="cm">
-      <created>1675362525554</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1675362525554</updated>
-    </task>
-    <task id="LOCAL-00020" summary="cm">
-      <created>1675362671061</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1675362671061</updated>
-    </task>
-    <task id="LOCAL-00021" summary="cm">
-      <created>1675362746037</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1675362746037</updated>
+      <workItem from="1675785063837" duration="670000" />
+      <workItem from="1675791387930" duration="2018000" />
+      <workItem from="1675814020566" duration="1900000" />
     </task>
     <task id="LOCAL-00022" summary="cm">
       <created>1675387664765</created>
@@ -449,7 +432,35 @@
       <option name="project" value="LOCAL" />
       <updated>1675678028009</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="add editor render view">
+      <created>1675785379613</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1675785379613</updated>
+    </task>
+    <task id="LOCAL-00068" summary="add editor render view">
+      <created>1675785457889</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1675785457889</updated>
+    </task>
+    <task id="LOCAL-00069" summary="add editor render view">
+      <created>1675785619444</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1675785619444</updated>
+    </task>
+    <task id="LOCAL-00070" summary="add editor render view">
+      <created>1675785699917</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1675785699917</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

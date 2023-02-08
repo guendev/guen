@@ -1,10 +1,10 @@
 import { defineEventHandler, readBody, setCookie, createError } from 'h3'
-import jwt from 'jsonwebtoken'
 import {UserMeta} from "~/entities/auth.entity";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  try {
+  const runtimeConfig = useRuntimeConfig()
 
+  try {
     const metaData: UserMeta = body.meta
 
     if(!metaData) {
@@ -13,13 +13,20 @@ export default defineEventHandler(async (event) => {
         message: 'Unauthorized'
       })
     }
-    const jwtToken = jwt.sign(metaData, 'secret')
-    setCookie(event, '_token', jwtToken)
+
+    const { token } = await $fetch<{ token: string }>(new URL('/auth', runtimeConfig.public.apiBackend).href, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${metaData.token}`
+      }
+    })
+
+    setCookie(event, '_token', token)
+
     return  {
-      token: jwtToken
+      token
     }
   } catch (e) {
-    console.log(e)
    //
   }
   return createError({

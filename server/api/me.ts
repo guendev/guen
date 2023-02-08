@@ -1,10 +1,11 @@
 import { defineEventHandler, getHeader, createError } from 'h3'
-import jwt from 'jsonwebtoken'
-import {UserMeta} from "~/entities/auth.entity";
 
 export default defineEventHandler(async (event) => {
+  const runtimeConfig = useRuntimeConfig()
+
   try {
     const token = getHeader(event, 'Authorization')
+
     if (!token) {
       return createError({
         statusCode: 401,
@@ -12,9 +13,14 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const payload = jwt.verify(token.split(' ')[1], 'secret')
+    const user = await $fetch<{ token: string }>(new URL('/auth', runtimeConfig.public.apiBackend).href, {
+      headers: {
+        Authorization: token
+      }
+    })
+
     return {
-        user: payload as UserMeta
+        user
     }
 
   } catch (e) {

@@ -47,7 +47,8 @@ export default defineNuxtConfig({
             },
         ],
         '@vueuse/nuxt',
-        'nuxt-icon'
+        'nuxt-icon',
+        '@nuxtjs/apollo'
     ],
     imports: {
         autoImport: true,
@@ -93,6 +94,23 @@ export default defineNuxtConfig({
         lazy: true,
         langDir: 'lang',
         defaultLocale: 'en'
+    },
+    apollo: {
+        clients: {
+            default: {
+                httpEndpoint: '/graphql'
+            }
+        },
+    },
+    runtimeConfig: {
+        // Private config that is only available on the server
+        apiSecret: process.env.NUXT_API_SECRET,
+        // Config within public will be also exposed to the client
+        public: {
+            apiBase: '/api',
+            apiGraphQL: process.env.NUXT_PUBLIC_APOLLO_ENDPOIT,
+            apiBackend: process.env.NUXT_PUBLIC_BACKEND_ENDPOIT,
+        }
     },
     // extend route
 })

@@ -5,4 +5,6 @@ export interface RegisterData {
     password: string
 }
 
-export type UserMeta = Pick<User, 'uid' | 'displayName' | 'email'>
+export type UserMeta = Pick<User, 'uid' | 'displayName' | 'email'> & {
+    token: string
+}
