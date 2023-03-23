@@ -55,39 +55,27 @@
 </template>
 
 <script lang="ts" setup>
+import {SignInInput} from "~/apollo/__generated__/serverTypes";
+import {SIGN_IN} from "~/apollo/mutates/auth.mutate";
+import {SignIn, SignInVariables} from "~/apollo/mutates/__generated__/SignIn";
 
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "@firebase/auth"
-import {RegisterData} from "~/entities/auth.entity"
-
-const form = reactive<RegisterData>({
-  email: '',
-  password: '',
+const form = reactive<SignInInput>({
+  email: 'dnstylish@gmail.com',
+  password: 'Khoi@025',
 })
 
-const submitForm = async () => {
-  try {
-    await signInWithEmailAndPassword(
-        getAuth(),
-        form.email,
-        form.password
-    )
+const { mutate, loading, onDone } = useMutation<SignIn, SignInVariables>(SIGN_IN)
+const submitForm = () => mutate({
+  input: form
+})
 
-    // await createUserWithEmailAndPassword(
-    //     getAuth(),
-    //     form.email,
-    //     form.password
-    // )
-    // await updateProfile(getAuth().currentUser!, {
-    //   displayName: 'Guen Chang'
-    // })
-  } catch (e) {
-    console.log(e)
-  }
-}
+onDone((data) => {
+  console.log(data.data?.signIn)
+})
 
 // return true if the form.email match the email format and the text length of form.password is greater than 6
 const isEnable = computed(() => {
-  return form.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) && form.password.length > 6
+  return form.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) && form.password.length > 6 && !loading.value
 })
 </script>
 

@@ -1,9 +1,7 @@
 <template>
   <div id="avatar" class="relative bg-gray-100 h-[calc(100vh-70px)]">
 
-
-    <img src="/images/me.jpeg" alt="" class="w-full h-full object-cover" />
-
+    <nuxt-img src="/images/me.jpeg" class="w-full h-full object-cover" />
 
     <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-16 w-8/12">
       <div class="flex items-center justify-between p-1.5 bg-white rounded-full shadow-default overflow-hidden">

@@ -7,7 +7,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "stop": "pm2 stop guen"
+    "stop": "pm2 stop guen",
+    "apollo:pull": "npx apollo client:download-schema --endpoint=http://localhost:3002/graphql schema.graphql",
+    "apollo:codegen": "npx apollo codegen:generate --localSchemaFile=schema.graphql --target=typescript --tagName=gql --includes=./apollo/**/*.ts --globalTypesFile=./apollo/__generated__/serverTypes.ts"
   },
   "overrides": {
     "vue": "latest"

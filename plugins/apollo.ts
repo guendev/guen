@@ -1,10 +1,12 @@
 import {ApolloLink, createHttpLink} from '@apollo/client/core'
 import { onError } from '@apollo/client/link/error'
 import { setContext } from '@apollo/client/link/context'
+import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
 
 export default defineNuxtPlugin((nuxtApp) => {
     // Get Nuxt runtimeConfig and apollo instance
     const runtimeConfig = useRuntimeConfig()
+    const { fire } = useNotify<NotifyEntity>()
     const { $apollo } = useNuxtApp()
 
     const roundTripLink = new ApolloLink((operation, forward) => {
@@ -46,6 +48,11 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     // error
     nuxtApp.hook('apollo:error', (error) => {
-        console.error(error)
+        if (!process.server && error.graphQLErrors?.[0].message) {
+            fire({
+                message: error.graphQLErrors?.[0].message,
+                type: NotifyType.ERROR
+            })
+        }
     })
 })

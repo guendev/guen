@@ -24,13 +24,13 @@ const notify = ref<NotifyEntity|undefined>()
 const notifyRef = ref<HTMLElement>()
 const { $anime } = useNuxtApp()
 const fireData = (data: NotifyEntity) => {
-
   if(notify.value) {
     notify.value = data
   } else {
     notify.value = data
     // Show animation by using $anime and remove it after 3s
     nextTick(() => {
+      // @ts-ignore
       $anime({
         targets: notifyRef.value,
         opacity: 1,
@@ -40,6 +40,7 @@ const fireData = (data: NotifyEntity) => {
         easing: 'easeOutExpo',
         complete: () => {
           setTimeout(() => {
+            // @ts-ignore
             $anime({
               targets: notifyRef.value,
               opacity: 0,

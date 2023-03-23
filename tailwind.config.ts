@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+// import defaultTheme from 'tailwindcss/defaultTheme'
+export default <Partial<Config>>{
   theme: {
     extend: {
       screens: {
@@ -13,7 +14,7 @@ module.exports = {
       },
       boxShadow: {
         default:
-          '0 24px 20px -18px rgb(69 104 129 / 0%), 0 9px 45px 0 rgb(114 119 160 / 12%)'
+            '0 24px 20px -18px rgb(69 104 129 / 0%), 0 9px 45px 0 rgb(114 119 160 / 12%)'
       },
       colors: {
         primary: {
