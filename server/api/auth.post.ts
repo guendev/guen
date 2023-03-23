@@ -21,7 +21,9 @@ export default defineEventHandler(async (event) => {
       }
     })
 
-    setCookie(event, '_token', token)
+    setCookie(event, '_token', token, {
+      httpOnly: true
+    })
 
     return  {
       token

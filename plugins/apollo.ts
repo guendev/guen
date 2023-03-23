@@ -1,6 +1,6 @@
-import {ApolloLink, createHttpLink} from '@apollo/client/core';
-import { onError } from '@apollo/client/link/error';
-import { setContext } from '@apollo/client/link/context';
+import {ApolloLink, createHttpLink} from '@apollo/client/core'
+import { onError } from '@apollo/client/link/error'
+import { setContext } from '@apollo/client/link/context'
 
 export default defineNuxtPlugin((nuxtApp) => {
     // Get Nuxt runtimeConfig and apollo instance
@@ -28,7 +28,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     const authLink = setContext((_, { headers }) => {
         const authStore = useAuthStore()
-        // return the headers to the context so httpLink can read them
         return {
             headers: {
                 ...headers,
@@ -39,31 +38,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     const errorLink = onError((err) => {
         nuxtApp.callHook('apollo:error', err).then(r => r)
-        // if (graphQLErrors) {
-        //     graphQLErrors.forEach(
-        //         ({ message, extensions }) => {
-        //             console.log(
-        //                 `[GraphQL error]: Message: ${message}, Code: ${extensions.category}`
-        //             )
-        //             const useUser = useUserStore()
-        //             switch (extensions.category) {
-        //                 case 'authentication':
-        //                     notify.error('Phiên đăng nhập đã kết thúc').then(() => {
-        //                         window.$vue._context.provides.$cookies.remove('_token')
-        //                         useUser.logout()
-        //                         window.location.reload()
-        //                     })
-        //             }
-        //         }
-        //         // Xoá cookie, đăng xuất, login
-        //     )
-        // }
-        // if (networkError) {
-        //     console.log(`[Network error]: ${networkError}`)
-        // }
     })
 
     // Set custom links in the apollo client (in this case, the default apollo client)
+    // @ts-ignore
     $apollo.defaultClient.setLink(roundTripLink.concat(errorLink.concat(authLink.concat(httpLink))))
 
     // error

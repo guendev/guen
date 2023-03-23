@@ -8,29 +8,7 @@ export default defineNuxtConfig({
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 { charset: 'utf-8' },
             ],
-            link: [
-                {
-                    rel: 'preconnect',
-                    href: 'https://fonts.googleapis.com'
-                },
-                {
-                    rel: 'preconnect',
-                    href: 'https://fonts.gstatic.com',
-                    crossorigin: ""
-                },
-                {
-                    rel: 'stylesheet',
-                    href: 'https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,500,600,700'
-                },
-                {
-                    rel: 'stylesheet',
-                    href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Sacramento&display=swap'
-                },
-                {
-                    rel: 'stylesheet',
-                    href: 'https://fonts.googleapis.com/css2?family=Sacramento&display=swap'
-                }
-            ]
+            link: []
         }
     },
     modules: [
@@ -99,6 +77,13 @@ export default defineNuxtConfig({
         lazy: true,
         langDir: 'lang',
         defaultLocale: 'en'
+    },
+    googleFonts: {
+        families: {
+            Caveat: true,
+            Sacramento: true,
+            'Nunito+Sans': true,
+        }
     },
     apollo: {
         clients: {
