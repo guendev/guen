@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/apollo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/apollo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/firebase.client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/firebase.client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/init.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/init.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +35,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -46,7 +46,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/yuan/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8617.44/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/guen/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8836.27/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -63,7 +63,7 @@
       <recent name="$PROJECT_DIR$/public/images/services" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -74,9 +74,20 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="postinstall" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="postinstall" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.postinstall" />
       </list>
     </recent_temporary>
   </component>
@@ -109,13 +120,22 @@
       <workItem from="1675785063837" duration="670000" />
       <workItem from="1675791387930" duration="2018000" />
       <workItem from="1675814020566" duration="3843000" />
-    </task>
-    <task id="LOCAL-00023" summary="cm">
-      <created>1675388107424</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1675388107424</updated>
+      <workItem from="1675833622863" duration="759000" />
+      <workItem from="1675834668140" duration="106000" />
+      <workItem from="1676015689173" duration="12000" />
+      <workItem from="1676618498177" duration="35000" />
+      <workItem from="1676618760675" duration="128000" />
+      <workItem from="1676797853051" duration="205000" />
+      <workItem from="1676878793473" duration="601000" />
+      <workItem from="1676883895020" duration="64000" />
+      <workItem from="1677056148558" duration="603000" />
+      <workItem from="1677159056268" duration="34000" />
+      <workItem from="1677978758113" duration="2000" />
+      <workItem from="1678181186152" duration="1000" />
+      <workItem from="1678588998508" duration="16000" />
+      <workItem from="1678879404534" duration="2970000" />
+      <workItem from="1678882402890" duration="1073000" />
+      <workItem from="1678955251873" duration="405000" />
     </task>
     <task id="LOCAL-00024" summary="cm">
       <created>1675388284792</created>
@@ -453,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675816008862</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="add editor render view">
+      <created>1675833633758</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1675833633758</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +488,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="cm" />
     <MESSAGE value="add upload" />
     <MESSAGE value="auto backup support" />
