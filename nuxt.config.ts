@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    // @ts-ignore
     app: {
         head: {
             title: 'Guen - A queer who wants to bring happiness to everybody.',
@@ -48,7 +49,11 @@ export default defineNuxtConfig({
         ],
         '@vueuse/nuxt',
         'nuxt-icon',
-        '@nuxtjs/apollo'
+        '@nuxtjs/apollo',
+        '@nuxtjs/robots',
+        '@nuxt/image-edge',
+        '@nuxtjs/google-fonts',
+        'nuxt-typed-router'
     ],
     imports: {
         autoImport: true,
