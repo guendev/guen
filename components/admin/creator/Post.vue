@@ -10,7 +10,7 @@
 
       <div class="mt-7 flex">
 
-        <admin-creator-avatar v-model:value="form.image" class="_avatar h-[160px] w-[266px] before:z-[3] flex-shrink-0" />
+        <admin-creator-avatar v-model:value="form.avatar" class="_avatar h-[160px] w-[266px] before:z-[3] flex-shrink-0" />
 
         <textarea
             v-model="description"
@@ -26,36 +26,36 @@
       </client-only>
 
     </form>
-<!--    <includes-teleport to="#header-actions">-->
-<!--      <button-->
-<!--          v-if="!isNewDoc"-->
-<!--          class="ml-7 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-rose-300 transition disabled:transition disabled:opacity-60"-->
-<!--          :disabled="isUploading || isUploadingImage || isGettingDoc || isRemoving"-->
-<!--          @click="removePost"-->
-<!--      >-->
-<!--        <Icon :name="isRemoving ? 'line-md:uploading-loop' : 'mingcute:delete-2-line'"/>-->
-<!--        <span class="text-[13px] font-semibold ml-1">-->
-<!--          REMOVE-->
-<!--        </span>-->
-<!--      </button>-->
+    <includes-teleport to="#header-actions">
+      <button
+          class="ml-7 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-rose-300 transition disabled:transition disabled:opacity-60"
+      >
+        <Icon :name="isNewDoc ? 'line-md:uploading-loop' : 'mingcute:delete-2-line'"/>
+        <span class="text-[13px] font-semibold ml-1">
+          REMOVE
+        </span>
+      </button>
 
-<!--      <button-->
-<!--          class="ml-7 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300 transition disabled:transition disabled:opacity-60"-->
-<!--          :disabled="isUploading || isUploadingImage || isGettingDoc"-->
-<!--          @click="publicNow"-->
-<!--      >-->
-<!--        <Icon :name="isUploading ? 'line-md:uploading-loop' : isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>-->
-<!--        <span class="text-[13px] font-semibold ml-1">-->
-<!--          {{ isNewDoc ? 'PUBLIC NOW' : 'UPDATE NOW' }}-->
-<!--        </span>-->
-<!--      </button>-->
-<!--    </includes-teleport>-->
+      <button
+          @click="publicNow"
+          class="ml-7 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300 transition disabled:transition disabled:opacity-60"
+      >
+        <Icon :name="loading ? 'line-md:uploading-loop' : isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>
+        <span class="text-[13px] font-semibold ml-1">
+          {{ isNewDoc ? 'PUBLIC NOW' : 'UPDATE NOW' }}
+        </span>
+      </button>
+    </includes-teleport>
   </includes-loading>
 </template>
 
 <script lang="ts" setup>
+import { useStorage } from '@vueuse/core'
 import {CreatePostInput, LocalizationContentInput, LocalizationFieldInput} from "~/apollo/__generated__/serverTypes"
 import {OutputData} from "@editorjs/editorjs/types/data-formats/output-data";
+import {CREATE_POST} from "~/apollo/mutates/post.mutate";
+import {CreatePost, CreatePostVariables} from "~/apollo/mutates/__generated__/CreatePost";
+import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
 
 const { locale } = useI18n()
 
@@ -80,6 +80,15 @@ const form = ref<CreatePostInput>({
   }
 })
 
+const [isNewDoc, toggleIsNewDoc] = useToggle(true)
+
+// const backup = useStorage<CreatePostInput>('_post_form', form.value)
+// watch(form, (val) => {
+//   // if(isNewDoc.value) {
+//     backup.value = toRaw(val)
+//   // }
+// }, { deep: true })
+
 const title = computed<string>({
   get: () => form.value.title[locale.value as keyof LocalizationContentInput] as string,
   set: (value: string) => {
@@ -99,6 +108,38 @@ const content = computed<OutputData>({
     form.value.content[locale.value as keyof LocalizationContentInput] = value
   }
 })
+
+
+const { mutate: createPost } = useMutation<CreatePost, CreatePostVariables>(CREATE_POST)
+
+const { fire } = useNotify<NotifyEntity>()
+const [loading, toggleLoading] = useToggle(false)
+const publicNow = async () => {
+  if (!form.value.title['en']) {
+    fire({
+      type: NotifyType.ERROR,
+      message: 'English title is required'
+    })
+    return
+  }
+  toggleLoading()
+
+  try {
+    await createPost({
+      input: form.value
+    })
+
+    fire({
+      type: NotifyType.SUCCESS,
+      message: 'Post created'
+    })
+
+  } catch (e) {
+    //
+  }
+
+  toggleLoading()
+}
 
 </script>
 

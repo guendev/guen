@@ -7,6 +7,12 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum LANGUAGE_ENUM {
+  en = "en",
+  jp = "jp",
+  vn = "vn",
+}
+
 export enum MEDIA_STORAGE_ENUM {
   LOCAL = "LOCAL",
 }
@@ -37,6 +43,16 @@ export interface LocalizationFieldInput {
   en: string;
   jp?: string | null;
   vn?: string | null;
+}
+
+export interface PostsFilter {
+  category?: string | null;
+  lang?: LANGUAGE_ENUM | null;
+  limit: number;
+  offset: number;
+  sort: string;
+  tags?: string[] | null;
+  title?: string | null;
 }
 
 export interface SignInInput {
