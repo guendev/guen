@@ -1,12 +1,6 @@
 <template>
   <div @click="open">
-    <!--          <img-->
-    <!--              v-if="form.image.url"-->
-    <!--              :src="form.image.url"-->
-    <!--              alt=""-->
-    <!--              class="w-full h-full object-cover relative z-[2]"-->
-    <!--          />-->
-
+    <nuxt-img v-if="_image" :src="_image.path" provider="backend" class="w-full h-full object-cover relative z-[2]"></nuxt-img>
     <Icon
         class="text-[35px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1]"
         name="ri:upload-cloud-line"
@@ -16,9 +10,24 @@
 </template>
 
 <script lang="ts" setup>
-// Upload
+import {ImageEntity} from "~/apollo/queries/__generated__/ImageEntity"
+
+const props = defineProps<{
+  image?: ImageEntity
+  value?: string
+}>()
+const _image = ref<ImageEntity|undefined>(props.image)
+const _value = ref<string|undefined>(props.value)
+
+// emit v-model
+const emits = defineEmits<{
+  (event: 'update:value', value?: string): void
+  (event: 'update:image', value?: ImageEntity): void
+}>()
+watch(_value, (_v1) => emits('update:value', _v1))
+watch(_image, (_v1) => emits('update:image', _v1))
+
 const { upload, onResult } = useUpload()
-const isUploadingImage = ref(false)
 const { files, open, reset } = useFileDialog({
   multiple: false,
   accept: 'image/*'
@@ -26,10 +35,15 @@ const { files, open, reset } = useFileDialog({
 
 watch(files, (files) => files?.length && upload(files.item(0)!))
 
-onResult((result) => {
-  console.log(result)
+const afterUpload = (files: ImageEntity[]) => {
+  if (files.length) {
+    _image.value = files[0]
+    _value.value = _image.value.id
+  }
   reset()
-})
+}
+
+onResult(afterUpload)
 
 </script>
 

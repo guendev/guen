@@ -10,7 +10,7 @@
 
       <div class="mt-7 flex">
 
-        <admin-creator-avatar class="_avatar h-[160px] w-[266px] before:z-[3] flex-shrink-0" />
+        <admin-creator-avatar v-model:value="form.image" class="_avatar h-[160px] w-[266px] before:z-[3] flex-shrink-0" />
 
         <textarea
             v-model="description"

@@ -78,6 +78,17 @@ export default defineNuxtConfig({
         langDir: 'lang',
         defaultLocale: 'en'
     },
+    image: {
+        providers: {
+            backend: {
+                name: 'backend',
+                provider: '~/providers/backend',
+                options: {
+                    baseURL: process.env.NUXT_PUBLIC_BACKEND_ENDPOIT
+                }
+            }
+        }
+    },
     googleFonts: {
         families: {
             Caveat: true,

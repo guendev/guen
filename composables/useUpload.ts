@@ -1,4 +1,4 @@
-import {ImageEntity} from "~/entities/image.entity";
+import {ImageEntity} from "~/apollo/queries/__generated__/ImageEntity";
 
 export const useUpload = () => {
     const runtimeConfig = useRuntimeConfig()
@@ -6,7 +6,12 @@ export const useUpload = () => {
 
     const fetchResult = createEventHook<ImageEntity[]>()
     const fetchError = createEventHook<any>()
+
+    const loading = ref<boolean>(false)
     const upload = async (_: File | File[], group?: string) => {
+
+        loading.value = true
+
         const files = Array.isArray(_) ? _ : [_]
 
         const formData = new FormData()
@@ -29,6 +34,8 @@ export const useUpload = () => {
         } catch (e) {
             fetchError.trigger(e)
         }
+
+        loading.value = false
     }
 
     return {

@@ -7,6 +7,10 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum MEDIA_STORAGE_ENUM {
+  LOCAL = "LOCAL",
+}
+
 export interface CreatePostInput {
   avatar: string;
   category: string;
