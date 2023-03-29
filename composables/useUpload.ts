@@ -31,6 +31,8 @@ export const useUpload = () => {
 
             fetchResult.trigger(res)
 
+            return res
+
         } catch (e) {
             fetchError.trigger(e)
         }

@@ -21,7 +21,9 @@
 
       <admin-creator-categories class="mt-5" v-model:value="form.category" />
 
-      <admin-creator-editor ref="editorRef" class="mt-7" />
+      <client-only>
+        <lazy-admin-creator-editor ref="editorRef" v-model:value="content" class="mt-7" />
+      </client-only>
 
     </form>
 <!--    <includes-teleport to="#header-actions">-->
@@ -53,6 +55,7 @@
 
 <script lang="ts" setup>
 import {CreatePostInput, LocalizationContentInput, LocalizationFieldInput} from "~/apollo/__generated__/serverTypes"
+import {OutputData} from "@editorjs/editorjs/types/data-formats/output-data";
 
 const { locale } = useI18n()
 
@@ -87,6 +90,13 @@ const description = computed<string>({
   get: () => form.value.description[locale.value as keyof LocalizationFieldInput] as string,
   set: (value: string) => {
     form.value.description[locale.value as keyof LocalizationFieldInput] = value
+  }
+})
+
+const content = computed<OutputData>({
+  get: () => form.value.content[locale.value as keyof LocalizationContentInput] as OutputData,
+  set: (value: OutputData) => {
+    form.value.content[locale.value as keyof LocalizationContentInput] = value
   }
 })
 
