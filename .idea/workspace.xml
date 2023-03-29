@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/components/admin/creator/Editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/admin/creator/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Post.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composables/useUpload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/useUpload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/queries/__generated__/GetPosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/queries/__generated__/GetPosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/queries/posts.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/queries/posts.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/posts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/posts/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.graphql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,9 +111,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.apollo:codegen" />
+        <item itemvalue="npm.apollo:pull" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.postinstall" />
-        <item itemvalue="npm.apollo:pull" />
       </list>
     </recent_temporary>
   </component>
@@ -170,28 +172,7 @@
       <workItem from="1680096177057" duration="1130000" />
       <workItem from="1680097320938" duration="335000" />
       <workItem from="1680097661781" duration="20000" />
-      <workItem from="1680098028989" duration="3518000" />
-    </task>
-    <task id="LOCAL-00030" summary="cm">
-      <created>1675424464594</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1675424464594</updated>
-    </task>
-    <task id="LOCAL-00031" summary="cm">
-      <created>1675424767070</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1675424767070</updated>
-    </task>
-    <task id="LOCAL-00032" summary="cm">
-      <created>1675521687591</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1675521687591</updated>
+      <workItem from="1680098028989" duration="6007000" />
     </task>
     <task id="LOCAL-00033" summary="cm">
       <created>1675524257460</created>
@@ -515,7 +496,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680100424048</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="add image support">
+      <created>1680101554392</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1680101554392</updated>
+    </task>
+    <task id="LOCAL-00080" summary="add image support">
+      <created>1680101558288</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1680101558288</updated>
+    </task>
+    <task id="LOCAL-00081" summary="add image support">
+      <created>1680102433007</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1680102433007</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

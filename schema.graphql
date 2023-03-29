@@ -184,7 +184,7 @@ input PostFilter {
 
 input PostsFilter {
   category: ID
-  lang: LANGUAGE_ENUM = en
+  lang: LANGUAGE_ENUM
   limit: Int!
   offset: Int!
   sort: String!
