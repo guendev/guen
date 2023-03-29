@@ -13,19 +13,18 @@ export default defineEventHandler(async (event) => {
   } else {
 
     try {
-      const user = await $fetch<{ token: string }>(new URL('/auth', runtimeConfig.public.apiBackend).href, {
+      const user = await $fetch<{ token: string }>(new URL('/auth/me', runtimeConfig.public.apiBackend).href, {
         headers: {
           Authorization: token
         }
       })
-
-      deleteCookie(event, '_token')
 
       return {
         user,
         token
       }
     } catch (e) {
+      deleteCookie(event, '_token')
       return createError({
         statusCode: 401,
         message: 'Unauthorized'

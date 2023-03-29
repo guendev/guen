@@ -6,7 +6,7 @@
       <img src="/images/avatar-mini.jpg" alt="" />
     </div>
 
-    <div class="lg:text-[45px] small:text-[35px] text-[27px] font-extrabold text-gray-800 leading-none">
+    <div class="lg:text-[45px] small:text-[35px] text-[27px] font-bold text-gray-800 leading-none">
 
       <div class="flex items-center">
 

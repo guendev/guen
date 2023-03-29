@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef87b560-c2ec-4291-b679-4c8a3a1d70bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apollo/__generated__/serverTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/mutates/__generated__/SignIn.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/mutates/auth.mutate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/mutates/__generated__/CreatePost.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/mutates/post.mutate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/queries/__generated__/Categories.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/queries/categories.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/creator/Avatar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/creator/Categories.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/home/Avatar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/home/Avatar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/includes/Notify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/includes/Notify.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/__generated__/serverTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/__generated__/serverTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/admin/creator/Editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Editor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/admin/creator/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/admin/creator/Post.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/home/Name.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/home/Name.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composables/useUpload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/composables/useUpload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/apollo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/apollo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/init.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/init.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/auth.post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/auth.post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/me.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/me.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -42,29 +49,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/guen/WebstormProjects/Personal/guen",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "ts.external.directory.path": "/Users/guen/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8836.50/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/guen/WebstormProjects/Personal/guen/apollo/queries&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.ChatGPT&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/guen/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8836.50/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apollo/queries" />
+      <recent name="$PROJECT_DIR$/apollo/mutates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/types" />
       <recent name="$PROJECT_DIR$/plugins" />
-      <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components/admin/creator" />
@@ -116,10 +124,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.apollo:codegen" />
-        <item itemvalue="npm.apollo:pull" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.postinstall" />
+        <item itemvalue="npm.apollo:pull" />
+        <item itemvalue="npm.apollo:codegen" />
       </list>
     </recent_temporary>
   </component>
@@ -170,14 +178,13 @@
       <workItem from="1678955251873" duration="405000" />
       <workItem from="1679555102445" duration="47000" />
       <workItem from="1679555314457" duration="3083000" />
-      <workItem from="1679565465689" duration="1034000" />
-    </task>
-    <task id="LOCAL-00027" summary="cm">
-      <created>1675412962387</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1675412962387</updated>
+      <workItem from="1679565465689" duration="6778000" />
+      <workItem from="1679584502386" duration="140000" />
+      <workItem from="1679720636968" duration="842000" />
+      <workItem from="1679721674159" duration="593000" />
+      <workItem from="1680095268562" duration="902000" />
+      <workItem from="1680096177057" duration="1130000" />
+      <workItem from="1680097320938" duration="335000" />
     </task>
     <task id="LOCAL-00028" summary="cm">
       <created>1675418825038</created>
@@ -515,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679564717652</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="add editor render view">
+      <created>1679566517647</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1679566517648</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

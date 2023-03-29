@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import EditorJS, {API, OutputData} from '@editorjs/editorjs'
+import type {API, OutputData} from '@editorjs/editorjs'
 
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
@@ -21,12 +21,14 @@ import Underline from '@editorjs/underline'
 import Embed from '@editorjs/embed'
 import InlineCodeTool from '@editorjs/inline-code'
 import {ImageEntity} from "~/entities/image.entity";
+import type EditorType from "@editorjs/editorjs";
+const EditorJS = () => import('@editorjs/editorjs')
 
 const props = defineProps<{
   value: OutputData
 }>()
 
-const editor = ref<EditorJS|undefined>()
+const editor = ref<EditorType|undefined>()
 const upload = useUpload()
 
 const uploadByFile = async (file: File) => {
@@ -56,47 +58,47 @@ const emit = defineEmits<{
 }>()
 
 const initEditor = () => {
-  editor.value = new EditorJS({
-    holder: 'editor',
-    placeholder: 'Write your story...',
-    data: props.value,
-    tools: {
-      header: Header,
-      image: {
-        class: ImageTool,
-        config: {
-          uploader: {
-            /**
-             * Upload file to the server and return an uploaded image data
-             * @param {File} file - file selected from the device or pasted by drag-n-drop
-             * @return {Promise.<{success, file: {url}}>}
-             */
-            uploadByFile,
-            /**
-             * Send URL-string to the server. Backend should load image by this URL and return an uploaded image data
-             * @param {string} url - pasted image URL
-             * @return {Promise.<{success, file: {url}}>}
-             */
-            uploadByUrl
-          }
-        }
-      },
-      list: List,
-      code: CodeTool,
-      quote: QuoteTool,
-      delimiter: DelimiterTool,
-      table: TableTool,
-      raw: RawTool,
-      warning: WarningTool,
-      checklist: CheckListTool,
-      underline: Underline,
-      embed: Embed,
-      inlineCode: InlineCodeTool
-    },
-    onChange(api: API, event: CustomEvent) {
-      api.saver.save().then((data) => emit('update:value', data))
-    }
-  })
+  // editor.value = new EditorJS({
+  //   holder: 'editor',
+  //   placeholder: 'Write your story...',
+  //   data: props.value,
+  //   tools: {
+  //     header: Header,
+  //     image: {
+  //       class: ImageTool,
+  //       config: {
+  //         uploader: {
+  //           /**
+  //            * Upload file to the server and return an uploaded image data
+  //            * @param {File} file - file selected from the device or pasted by drag-n-drop
+  //            * @return {Promise.<{success, file: {url}}>}
+  //            */
+  //           uploadByFile,
+  //           /**
+  //            * Send URL-string to the server. Backend should load image by this URL and return an uploaded image data
+  //            * @param {string} url - pasted image URL
+  //            * @return {Promise.<{success, file: {url}}>}
+  //            */
+  //           uploadByUrl
+  //         }
+  //       }
+  //     },
+  //     list: List,
+  //     code: CodeTool,
+  //     quote: QuoteTool,
+  //     delimiter: DelimiterTool,
+  //     table: TableTool,
+  //     raw: RawTool,
+  //     warning: WarningTool,
+  //     checklist: CheckListTool,
+  //     underline: Underline,
+  //     embed: Embed,
+  //     inlineCode: InlineCodeTool
+  //   },
+  //   onChange(api: API, event: CustomEvent) {
+  //     api.saver.save().then((data) => emit('update:value', data))
+  //   }
+  // })
 }
 
 onMounted(() => nextTick(() => initEditor()))

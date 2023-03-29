@@ -35,7 +35,7 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@vueuse/core": "^9.13.0",
     "@vueuse/nuxt": "^9.13.0",
-    "nuxt": "^3.3.1",
+    "nuxt": "^3.3.2",
     "nuxt-icon": "^0.3.3",
     "nuxt-typed-router": "^3.0.7",
     "sass": "^1.59.3",

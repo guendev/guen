@@ -57,11 +57,12 @@
 <script lang="ts" setup>
 import {SignInInput} from "~/apollo/__generated__/serverTypes";
 import {SIGN_IN} from "~/apollo/mutates/auth.mutate";
-import {SignIn, SignInVariables} from "~/apollo/mutates/__generated__/SignIn";
+import {SignIn, SignInVariables} from "~/apollo/mutates/__generated__/SignIn"
+import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
 
 const form = reactive<SignInInput>({
-  email: 'dnstylish@gmail.com',
-  password: 'Khoi@025',
+  email: 'heloo@guen.dev',
+  password: 'Guen@2508',
 })
 
 const { mutate, loading, onDone } = useMutation<SignIn, SignInVariables>(SIGN_IN)
@@ -69,9 +70,32 @@ const submitForm = () => mutate({
   input: form
 })
 
-onDone((data) => {
-  console.log(data.data?.signIn)
-})
+const { fire } = useNotify<NotifyEntity>()
+const writeToken = async (token: string) => {
+  try {
+    await $fetch('/api/auth', {
+      method: 'POST',
+      body: JSON.stringify({ token })
+    })
+
+    fire({
+      message: 'Welcome back!',
+      type: NotifyType.SUCCESS
+    })
+
+    setTimeout(() => {
+      window.location.reload()
+    }, 1000)
+
+  } catch (e) {
+    fire({
+      message: 'Write token failed!',
+      type: NotifyType.ERROR
+    })
+  }
+}
+
+onDone((data) => data.data?.signIn && writeToken(data.data.signIn))
 
 // return true if the form.email match the email format and the text length of form.password is greater than 6
 const isEnable = computed(() => {

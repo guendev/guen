@@ -4,8 +4,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   const authStore = useAuthStore()
 
   const token = getCookie(useRequestEvent(), '_token')
-  if(token && process.server) {
 
+  if(token && process.server) {
 
       try {
           // @ts-ignore

@@ -82,7 +82,7 @@ export default defineNuxtConfig({
         families: {
             Caveat: true,
             Sacramento: true,
-            'Nunito+Sans': true,
+            'Nunito+Sans': [400, 500, 600, 700, 800],
         }
     },
     apollo: {

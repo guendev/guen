@@ -1,25 +1,39 @@
 import {ImageEntity} from "~/entities/image.entity";
 
 export const useUpload = () => {
-    const preview = async (path: string, store: ImageEntity['store']) => {
-        return fsGetDownloadURL(fsRef(getStorage(), path))
-    }
+    const runtimeConfig = useRuntimeConfig()
+    const authStore = useAuthStore()
 
-    const toFireStore = async (file: File, folder: string): Promise<ImageEntity> => {
-        const createdAt = Date.now()
-        const res = await fsUploadBytes(fsRef(getStorage(), `/${folder}/${createdAt}`), file)
-        const url = await preview(res.metadata.fullPath, 'firebase')
-        return {
-            url,
-            path: res.metadata.fullPath,
-            store: 'firebase',
-            createdAt,
-            updatedAt: Date.now()
+    const fetchResult = createEventHook<ImageEntity[]>()
+    const fetchError = createEventHook<any>()
+    const upload = async (_: File | File[], group?: string) => {
+        const files = Array.isArray(_) ? _ : [_]
+
+        const formData = new FormData()
+        files.forEach(file => {
+            formData.append('images', file)
+        })
+        group && formData.append('group', group)
+
+        try {
+            const res = await $fetch<ImageEntity[]>(new URL('/images', runtimeConfig.public.apiBackend).href, {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${authStore.token}`
+                },
+                body: formData
+            })
+
+            fetchResult.trigger(res)
+
+        } catch (e) {
+            fetchError.trigger(e)
         }
     }
 
     return {
-        toFireStore,
-        preview
+        upload,
+        onResult: fetchResult.on,
+        onError: fetchError.on
     }
 }
