@@ -6,6 +6,7 @@
       <NuxtPage />
     </div>
     <includes-notify />
+    <includes-languager />
   </div>
 </template>
 

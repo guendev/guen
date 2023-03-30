@@ -8,19 +8,19 @@ export const GET_POSTS = gql`
                 id
                 en
                 jp
-                vn
+                vi
             }
             description {
                 id
                 en
                 jp
-                vn
+                vi
             }
             content {
                 id
                 en
                 jp
-                vn
+                vi
             }
             avatar {
                 id
@@ -47,19 +47,19 @@ export const GET_POST = gql`
                 id
                 en
                 jp
-                vn
+                vi
             }
             description {
                 id
                 en
                 jp
-                vn
+                vi
             }
             content {
                 id
                 en
                 jp
-                vn
+                vi
             }
             avatar {
                 id

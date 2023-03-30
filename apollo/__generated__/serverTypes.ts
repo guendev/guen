@@ -10,7 +10,7 @@
 export enum LANGUAGE_ENUM {
   en = "en",
   jp = "jp",
-  vn = "vn",
+  vi = "vi",
 }
 
 export enum MEDIA_STORAGE_ENUM {
@@ -36,13 +36,13 @@ export interface GetCategoriesFilter {
 export interface LocalizationContentInput {
   en: any;
   jp?: any | null;
-  vn?: any | null;
+  vi?: any | null;
 }
 
 export interface LocalizationFieldInput {
   en: string;
   jp?: string | null;
-  vn?: string | null;
+  vi?: string | null;
 }
 
 export interface PostFilter {

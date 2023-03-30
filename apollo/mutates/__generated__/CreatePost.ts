@@ -9,16 +9,10 @@ import { CreatePostInput } from "./../../__generated__/serverTypes";
 // GraphQL mutation operation: CreatePost
 // ====================================================
 
-export interface CreatePost_createPost_content {
-  __typename: "LocalizationContent";
-  id: string | null;
-  en: any;
-}
-
 export interface CreatePost_createPost {
   __typename: "Post";
   id: string;
-  content: CreatePost_createPost_content;
+  slug: string;
 }
 
 export interface CreatePost {

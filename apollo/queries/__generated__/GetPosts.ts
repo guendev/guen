@@ -14,7 +14,7 @@ export interface GetPosts_posts_title {
   id: string | null;
   en: string;
   jp: string | null;
-  vn: string | null;
+  vi: string | null;
 }
 
 export interface GetPosts_posts_description {
@@ -22,7 +22,7 @@ export interface GetPosts_posts_description {
   id: string | null;
   en: string;
   jp: string | null;
-  vn: string | null;
+  vi: string | null;
 }
 
 export interface GetPosts_posts_content {
@@ -30,7 +30,7 @@ export interface GetPosts_posts_content {
   id: string | null;
   en: any;
   jp: any | null;
-  vn: any | null;
+  vi: any | null;
 }
 
 export interface GetPosts_posts_avatar {

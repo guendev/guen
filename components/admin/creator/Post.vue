@@ -12,7 +12,7 @@
 
         <div class="mt-7 flex">
 
-          <admin-creator-avatar v-model:value="form.avatar" :image="currentPost?.avatar" class="_avatar h-[160px] w-[266px] before:z-[3] flex-shrink-0" />
+          <admin-creator-avatar v-model:value="form.avatar" v-model:image="imageForm" class="_avatar h-[160px] w-[266px] before:z-[3] flex-shrink-0" />
 
           <textarea
               v-model="description"
@@ -59,33 +59,89 @@ import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
 import {GET_POST} from "~/apollo/queries/posts.query";
 import {AdminGetPost, AdminGetPostVariables} from "~/apollo/queries/__generated__/AdminGetPost";
 import {UpdatePost, UpdatePostVariables} from "~/apollo/mutates/__generated__/UpdatePost";
+import {ImageEntity} from "~/apollo/queries/__generated__/ImageEntity";
 
 const { locale } = useI18n()
 const router = useRouter()
 const route = useRoute()
 const link = useLinkComplex()
+const { fire } = useNotify<NotifyEntity>()
 
-const form = ref<CreatePostInput>({
+const formDefault: CreatePostInput = {
   avatar: '',
   category: '',
   content: {
     en: {},
     jp: {},
-    vn: {}
+    vi: {}
   },
   description: {
     en: '',
     jp: '',
-    vn: ''
+    vi: ''
   },
   tags: [],
   title: {
     en: '',
     jp: '',
-    vn: ''
+    vi: ''
   }
+};
+const form = ref<CreatePostInput>(formDefault)
+const imageForm = ref<ImageEntity>()
+
+const [isNewDoc, toggleIsNewDoc] = useToggle(route.path === router.resolve(link.createPost()).path)
+
+/**
+ * Auto save form data to local storage
+ */
+interface Storage {
+  draft: {
+    form: CreatePostInput,
+    image?: ImageEntity
+  },
+  posts: Record<string, {
+    form: CreatePostInput,
+    image?: ImageEntity
+  }>
+}
+const store = useStorage<Storage>('posts', {
+  draft: {
+    form: form.value
+  },
+  posts: {}
 })
-const [isNewDoc, toggleIsNewDoc] = useToggle(true)
+watch([form, imageForm], ([val, val2]) => {
+  if(isNewDoc.value) {
+    store.value.draft.form = toRaw(val)
+    store.value.draft.image = toRaw(val2)
+  } else {
+    store.value.posts[route.params.id as string] = {
+      form: toRaw(val),
+      image: toRaw(val2)
+    }
+  }
+}, { deep: true })
+
+const init = () => {
+  if (isNewDoc.value) {
+    if (store.value.draft.form) {
+      form.value = store.value.draft.form
+      imageForm.value = store.value.draft.image
+    }
+  } else {
+    if (store.value.posts[route.params.id as string]) {
+      form.value = store.value.posts[route.params.id as string].form
+      imageForm.value = store.value.posts[route.params.id as string].image
+
+      // nextTick(() => fire({
+      //   type: NotifyType.SUCCESS,
+      //   message: 'Auto save data enabled'
+      // }))
+    }
+  }
+}
+onMounted(() => init())
 
 /**
  * Only using this section for post editing
@@ -101,15 +157,17 @@ const currentPost = computed(() => result.value?.post)
 onResult((result) => {
   if (result.data?.post) {
     // migrate data to form
-    const _data = JSON.parse(JSON.stringify(result.data.post))
-    Object.assign(form.value, {
-      avatar: _data.avatar.id,
-      category: _data.category.id,
-      content: _data.content,
-      description: _data.description,
-      title: _data.title
-    })
-    toggleIsNewDoc()
+    if(!store.value.posts[route.params.id as string]) {
+      const _data = JSON.parse(JSON.stringify(result.data.post))
+      imageForm.value = _data.avatar
+      Object.assign(form.value, {
+        avatar: _data.avatar.id,
+        category: _data.category.id,
+        content: _data.content,
+        description: _data.description,
+        title: _data.title
+      })
+    }
   }
 })
 onError((e) => {
@@ -120,13 +178,6 @@ onError((e) => {
   })
   router.push(link.createPost())
 })
-
-// const backup = useStorage<CreatePostInput>('_post_form', form.value)
-// watch(form, (val) => {
-//   // if(isNewDoc.value) {
-//     backup.value = toRaw(val)
-//   // }
-// }, { deep: true })
 
 const title = computed<string>({
   get: () => form.value.title[locale.value as keyof LocalizationContentInput] as string,
@@ -150,7 +201,6 @@ const content = computed<OutputData>({
 const { mutate: createPost } = useMutation<CreatePost, CreatePostVariables>(CREATE_POST)
 const { mutate: updatePost } = useMutation<UpdatePost, UpdatePostVariables>(UPDATE_POST)
 
-const { fire } = useNotify<NotifyEntity>()
 const [loading, toggleLoading] = useToggle(false)
 const publicNow = async () => {
   if (!form.value.title['en']) {
@@ -165,11 +215,18 @@ const publicNow = async () => {
   try {
 
     if (isNewDoc.value) {
-      await createPost({
+      const _post = await createPost({
         input: form.value
       })
-    } else {
+      store.value.draft = {
+        form: formDefault
+      }
 
+      if (_post?.data) {
+        router.replace(link.admin.post(_post.data.createPost))
+      }
+
+    } else {
       const _data = toRaw(form.value)
       // remove __typename for each element
       ;['title', 'description', 'content'].forEach((key) => {
@@ -181,10 +238,11 @@ const publicNow = async () => {
 
       await updatePost({
         input: {
-          id: currentPost.value!.id,
+          id: currentPost.value?.id as string,
           ...form.value
         }
       })
+      delete store.value.posts[route.params.id as string]
 
     }
 

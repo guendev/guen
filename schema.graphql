@@ -91,52 +91,52 @@ scalar JSON
 enum LANGUAGE_ENUM {
   en
   jp
-  vn
+  vi
 }
 
 interface LocalizationBase {
   en: String!
   jp: String
-  vn: String
+  vi: String
 }
 
 type LocalizationContent implements LocalizationContentBase {
   en: JSON!
   id: String
   jp: JSON
-  vn: JSON
+  vi: JSON
 }
 
 interface LocalizationContentBase {
   en: JSON!
   jp: JSON
-  vn: JSON
+  vi: JSON
 }
 
 input LocalizationContentInput {
   en: JSON!
   jp: JSON
-  vn: JSON
+  vi: JSON
 }
 
 type LocalizationDescription implements LocalizationBase {
   en: String!
   id: String
   jp: String
-  vn: String
+  vi: String
 }
 
 input LocalizationFieldInput {
   en: String!
   jp: String
-  vn: String
+  vi: String
 }
 
 type LocalizationTitle implements LocalizationBase {
   en: String!
   id: String
   jp: String
-  vn: String
+  vi: String
 }
 
 enum MEDIA_STORAGE_ENUM {

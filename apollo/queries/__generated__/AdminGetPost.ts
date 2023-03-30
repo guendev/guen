@@ -14,7 +14,7 @@ export interface AdminGetPost_post_title {
   id: string | null;
   en: string;
   jp: string | null;
-  vn: string | null;
+  vi: string | null;
 }
 
 export interface AdminGetPost_post_description {
@@ -22,7 +22,7 @@ export interface AdminGetPost_post_description {
   id: string | null;
   en: string;
   jp: string | null;
-  vn: string | null;
+  vi: string | null;
 }
 
 export interface AdminGetPost_post_content {
@@ -30,7 +30,7 @@ export interface AdminGetPost_post_content {
   id: string | null;
   en: any;
   jp: any | null;
-  vn: any | null;
+  vi: any | null;
 }
 
 export interface AdminGetPost_post_avatar {
