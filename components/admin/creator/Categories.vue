@@ -1,6 +1,6 @@
 <template>
-  <ul class="flex -m-3">
-    <li
+  <div class="flex -m-3">
+    <div
         v-for="item in categories"
         :key="item"
         class="p-3"
@@ -15,8 +15,8 @@
       >
         {{ item.name }}
       </button>
-    </li>
-  </ul>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -37,7 +37,6 @@ const emits = defineEmits<{
 }>()
 
 watch(_value, (value) => {
-  console.log('value', value)
   emits('update:value', value)
 })
 

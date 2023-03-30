@@ -1,9 +1,6 @@
 <template>
   <blog-wrapper :prose="false">
-    <client-only>
-      <admin-creator-post />
-      <includes-languager />
-    </client-only>
+    <admin-creator-post />
   </blog-wrapper>
 </template>
 

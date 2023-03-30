@@ -96,6 +96,7 @@ const initEditor = () => {
       inlineCode: InlineCodeTool
     },
     onChange(api: API, event: CustomEvent) {
+      console.log('onChange', api, event)
       api.saver.save().then((data) => emit('update:value', data))
     }
   })

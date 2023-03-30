@@ -45,6 +45,10 @@ export interface LocalizationFieldInput {
   vn?: string | null;
 }
 
+export interface PostFilter {
+  slug: string;
+}
+
 export interface PostsFilter {
   category?: string | null;
   lang?: LANGUAGE_ENUM | null;
@@ -58,6 +62,16 @@ export interface PostsFilter {
 export interface SignInInput {
   email: string;
   password: string;
+}
+
+export interface UpdatePostInput {
+  avatar?: string | null;
+  category?: string | null;
+  content?: LocalizationContentInput | null;
+  description?: LocalizationFieldInput | null;
+  id: string;
+  tags?: string[] | null;
+  title?: LocalizationFieldInput | null;
 }
 
 //==============================================================

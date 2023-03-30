@@ -27,6 +27,50 @@ export const GET_POSTS = gql`
                 path
                 storage
             }
+            createdAt
+            views
+            slug
+            category {
+                id
+                name
+                slug
+            }
+        }
+    }
+`
+
+export const GET_POST = gql`
+    query AdminGetPost($filter: PostFilter!) {
+        post(filter: $filter) {
+            id
+            title {
+                id
+                en
+                jp
+                vn
+            }
+            description {
+                id
+                en
+                jp
+                vn
+            }
+            content {
+                id
+                en
+                jp
+                vn
+            }
+            avatar {
+                id
+                path
+                storage
+            }
+            category {
+                id
+                name
+                slug
+            }
         }
     }
 `

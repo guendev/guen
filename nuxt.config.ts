@@ -30,8 +30,7 @@ export default defineNuxtConfig({
         '@nuxtjs/apollo',
         '@nuxtjs/robots',
         '@nuxt/image-edge',
-        '@nuxtjs/google-fonts',
-        'nuxt-typed-router'
+        '@nuxtjs/google-fonts'
     ],
     imports: {
         autoImport: true,

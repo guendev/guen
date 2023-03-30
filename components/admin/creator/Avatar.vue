@@ -18,6 +18,12 @@ const props = defineProps<{
 }>()
 const _image = ref<ImageEntity|undefined>(props.image)
 const _value = ref<string|undefined>(props.value)
+watch(() => props.image, (_v) => {
+  _image.value = _v
+})
+watch(() => props.value, (_v) => {
+  _value.value = _v
+})
 
 // emit v-model
 const emits = defineEmits<{

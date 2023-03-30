@@ -30,11 +30,15 @@ export const useLinkComplex = () => {
             }
         }),
 
+        createPost: (): RouteLocationRaw => ({
+            name: nameWithPrefix('admin-creator-post')
+        }),
+
         admin: {
-            post: (post: PostEntity): RouteLocationRaw => ({
+            post: (post: Record<'slug', string>): RouteLocationRaw => ({
                 name: nameWithPrefix('admin-posts-id'),
                 params: {
-                    id: post.id
+                    id: post.slug
                 }
             }),
             posts: (): RouteLocationRaw => ({
