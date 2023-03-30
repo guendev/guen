@@ -181,7 +181,7 @@ const publicNow = async () => {
 
       await updatePost({
         input: {
-          id: currentPost.value?.id,
+          id: currentPost.value!.id,
           ...form.value
         }
       })
