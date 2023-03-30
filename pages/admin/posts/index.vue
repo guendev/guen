@@ -3,12 +3,12 @@
     <div class="flex items-center justify-between border-b pb-4">
       <h2 class="text-[20px]">
         Post List
-        <span v-if="posts.length" class="text-[14px]">
-          ({{ posts.length }})
+        <span v-if="count" class="text-[14px]">
+          ({{ count }})
         </span>
       </h2>
 
-      <div v-if="false" class="w-[300px] flex items-center">
+      <div class="w-[300px] flex items-center">
         <Icon
             name="ri:search-line"
             class="flex-shrink-0 text-[20px] text-gray-500"
@@ -53,6 +53,7 @@
 import {GetPosts, GetPosts_posts, GetPostsVariables} from "~/apollo/queries/__generated__/GetPosts";
 import {GET_POSTS} from "~/apollo/queries/posts.query";
 import {VueLottiePlayer} from "@nguyenshort/vue-lottie";
+import {CountPosts, CountPostsVariables} from "~/apollo/queries/__generated__/CountPosts";
 
 const link = useLinkComplex()
 
@@ -66,6 +67,9 @@ const filter = reactive<GetPostsVariables>({
 
 const { result } = useQuery<GetPosts, GetPostsVariables>(GET_POSTS, filter)
 const posts = computed<GetPosts_posts[]>(() => result.value?.posts || [])
+
+const { result: countPostResult } = useQuery<CountPosts, CountPostsVariables>(GET_POSTS, filter)
+const count = computed<number>(() => countPostResult.value?.countPosts || 0)
 
 // https://assets6.lottiefiles.com/datafiles/vhvOcuUkH41HdrL/data.json
 </script>

@@ -44,3 +44,11 @@ export const UPDATE_POST = gql`
         }
     }
 `
+
+export const REMOVE_POST = gql`
+    mutation RemovePost($input: RemovePostInput!) {
+        removePost(input: $input) {
+            id
+        }
+    }
+`

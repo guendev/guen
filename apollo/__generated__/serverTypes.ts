@@ -17,6 +17,13 @@ export enum MEDIA_STORAGE_ENUM {
   LOCAL = "LOCAL",
 }
 
+export interface CountPostsFilter {
+  category?: string | null;
+  lang?: LANGUAGE_ENUM | null;
+  tags?: string[] | null;
+  title?: string | null;
+}
+
 export interface CreatePostInput {
   avatar: string;
   category: string;
@@ -57,6 +64,10 @@ export interface PostsFilter {
   sort: string;
   tags?: string[] | null;
   title?: string | null;
+}
+
+export interface RemovePostInput {
+  id: string;
 }
 
 export interface SignInInput {

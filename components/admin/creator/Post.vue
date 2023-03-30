@@ -28,10 +28,15 @@
 
     <includes-teleport to="#header-actions">
       <button
-          v-if="!isNewDoc"
+          v-if="!isNewDoc && currentPost"
           class="ml-7 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-rose-300 transition disabled:transition disabled:opacity-60"
+          @click="removePost({
+            input: {
+              id: currentPost.id
+            }
+          })"
       >
-        <Icon :name="isNewDoc ? 'line-md:uploading-loop' : 'mingcute:delete-2-line'"/>
+        <Icon :name="deleting ? 'line-md:uploading-loop' : 'mingcute:delete-2-line'"/>
         <span class="text-[13px] font-semibold ml-1">
           REMOVE
         </span>
@@ -55,13 +60,15 @@
 import { useStorage } from '@vueuse/core'
 import {CreatePostInput, LocalizationContentInput, LocalizationFieldInput} from "~/apollo/__generated__/serverTypes"
 import {OutputData} from "@editorjs/editorjs/types/data-formats/output-data";
-import {CREATE_POST, UPDATE_POST} from "~/apollo/mutates/post.mutate";
+import {CREATE_POST, REMOVE_POST, UPDATE_POST} from "~/apollo/mutates/post.mutate";
 import {CreatePost, CreatePostVariables} from "~/apollo/mutates/__generated__/CreatePost";
 import {NotifyEntity, NotifyType} from "~/entities/notify.entity";
 import {GET_POST} from "~/apollo/queries/posts.query";
 import {AdminGetPost, AdminGetPostVariables} from "~/apollo/queries/__generated__/AdminGetPost";
 import {UpdatePost, UpdatePostVariables} from "~/apollo/mutates/__generated__/UpdatePost";
 import {ImageEntity} from "~/apollo/queries/__generated__/ImageEntity";
+import {RemovePost, RemovePostVariables} from "~/apollo/mutates/__generated__/RemovePost";
+import {InMemoryCache} from "@apollo/client";
 
 const { locale } = useI18n()
 const router = useRouter()
@@ -260,7 +267,21 @@ const publicNow = async () => {
   toggleLoading()
 }
 
-// Todo: add remove post
+const { $apollo } = useNuxtApp()
+
+const { mutate: removePost, loading: deleting, onDone: afterDelete } = useMutation<RemovePost, RemovePostVariables>(REMOVE_POST)
+afterDelete((post) => {
+  if (post.data?.removePost) {
+    fire({
+      type: NotifyType.SUCCESS,
+      message: 'Post deleted'
+    })
+    const cache: InMemoryCache = ($apollo as any).defaultClient.cache
+    cache.evict({ id: `Post:${post.data.removePost}` })
+    router.replace(link.admin.posts())
+  }
+})
+
 </script>
 
 <style scoped lang="scss">

@@ -47,6 +47,13 @@ type Category {
   updatedAt: Float!
 }
 
+input CountPostsFilter {
+  category: ID
+  lang: LANGUAGE_ENUM
+  tags: [ID!]
+  title: String
+}
+
 input CreateCategoryInput {
   description: String = ""
   name: String!
@@ -195,7 +202,7 @@ input PostsFilter {
 type Query {
   categories(filter: GetCategoriesFilter!): [Category!]!
   categoriesCount(filter: GetCategoriesFilter!): Float!
-  countPosts(filter: PostsFilter!): Int!
+  countPosts(filter: CountPostsFilter!): Int!
   me: User!
   post(filter: PostFilter!): Post!
   posts(filter: PostsFilter!): [Post!]!

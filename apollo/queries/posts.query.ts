@@ -74,3 +74,10 @@ export const GET_POST = gql`
         }
     }
 `
+
+
+export const COUNT_POSTS = gql`
+    query CountPosts($filter: CountPostsFilter!) {
+        countPosts(filter: $filter)
+    }
+`
