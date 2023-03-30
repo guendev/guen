@@ -170,7 +170,7 @@ onResult((result) => {
     }
   }
 })
-onError((e) => {
+onError(() => {
   // redirect to create new post
   fire({
     type: NotifyType.ERROR,
