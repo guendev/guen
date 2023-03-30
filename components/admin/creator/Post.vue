@@ -28,6 +28,7 @@
 
     <includes-teleport to="#header-actions">
       <button
+          v-if="!isNewDoc"
           class="ml-7 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-rose-300 transition disabled:transition disabled:opacity-60"
       >
         <Icon :name="isNewDoc ? 'line-md:uploading-loop' : 'mingcute:delete-2-line'"/>
@@ -39,6 +40,7 @@
       <button
           @click="publicNow"
           class="ml-7 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white px-2.5 py-2 flex justify-center items-center shadow-default shadow-primary-300 transition disabled:transition disabled:opacity-60"
+          :disabled="loading"
       >
         <Icon :name="loading ? 'line-md:uploading-loop' : isNewDoc ? 'ic:sharp-plus' : 'material-symbols:check-small-rounded'"/>
         <span class="text-[13px] font-semibold ml-1">
@@ -258,6 +260,7 @@ const publicNow = async () => {
   toggleLoading()
 }
 
+// Todo: add remove post
 </script>
 
 <style scoped lang="scss">
